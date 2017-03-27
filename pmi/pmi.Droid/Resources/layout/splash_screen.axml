@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/gradient_bg">
+
+  <android.support.design.widget.CoordinatorLayout
+      android:id="@+id/options_frame"
+      android:fitsSystemWindows="true"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      
+      <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/menu_selector_bg">
+        
+          <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/AppTheme.AppTitle"
+            android:textColor="@color/text_menu"
+            android:textSize="@dimen/text_huge"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text=""
+            android:id="@+id/toolbar_title"
+            fontPath="fonts/PTSans-Bold.ttf"/>
+      
+      </RelativeLayout>
+
+      <ProgressBar
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:layout_gravity="center"
+              android:gravity="center" />
+  </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.DrawerLayout>

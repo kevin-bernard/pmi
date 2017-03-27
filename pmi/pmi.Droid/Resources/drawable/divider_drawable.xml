@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item
+        android:left="@dimen/menu_divider_padding_left"
+        android:right="@dimen/menu_divider_padding_right"
+        android:top="@dimen/menu_divider_padding_top">
+        
+        <bitmap android:src="@drawable/divider" />
+    </item>
+
+</layer-list>

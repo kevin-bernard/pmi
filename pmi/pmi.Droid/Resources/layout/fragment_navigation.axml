@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_view"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/window_bg"
+    android:paddingLeft="@dimen/navigation_padding_left"
+    android:paddingRight="@dimen/navigation_padding_right"
+    android:paddingTop="@dimen/navigation_padding_top"
+    local:menu="@menu/navigation_drawer"
+    local:itemBackground="@drawable/divider_drawable"
+    local:itemTextColor="@drawable/nav_item"
+    local:itemIconTint="@drawable/nav_item"
+    local:theme="@style/MenuNavigation"/>

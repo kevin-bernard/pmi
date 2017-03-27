@@ -1,0 +1,69 @@
+﻿<resources>
+
+    <!-- Application theme -->
+    <style name="AppTheme" parent="AppTheme.Base">
+    </style>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+      
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">false</item>
+
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+  
+    <style name="AppTheme.Menu" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/selected_item</item>
+        <item name="colorControlHighlight">@color/selected_item</item>
+    </style>
+
+    <style name="AppTheme.Splash" parent="AppTheme.Base">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="MenuSelector" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+      <item name="android:background">@color/menu_selector_bg</item>
+    </style>
+
+    <style name="MenuNavigation">
+      <item name="android:textSize">@dimen/text_huge</item>
+    </style>
+  
+    <style name="MenuTitle" parent="AppTheme.Base">
+      <item name="android:textColor">@color/text_menu</item>
+      <item name="android:textSize">@dimen/text_large</item>
+      <item name="android:layout_gravity">left</item>
+    </style>
+
+    <style name="AppTheme.AppTitle" parent="AppTheme.Base">
+      <item name="android:textColor">@color/text_menu</item>
+      <item name="android:textSize">@dimen/text_huge</item>
+      <item name="android:textStyle">bold</item>
+    </style>
+  
+    <style name="AppTheme.Overlay" parent="AppTheme.Base">
+      <item name="android:colorBackground">@color/white</item>
+      <item name="android:background">@color/white</item>
+      <item name="panelBackground">@color/white</item>
+      <item name="android:layout_marginRight">-40dp</item>
+    </style>
+
+    <style name="TextAppearance.PTSans" parent="android:TextAppearance">
+      <!-- Custom Attr-->
+      <item name="fontPath">fonts/segoepr.ttf</item>
+    </style>
+</resources>
