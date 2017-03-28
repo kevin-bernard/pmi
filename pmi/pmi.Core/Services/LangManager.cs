@@ -28,6 +28,11 @@ namespace pmi.Core.Services
             }
         }
 
+        public static bool HasAppLang {
+            get {
+                return AppLang != null && AppLang != string.Empty;
+            }
+        }
         public static bool DeviceHasManySubLanguages {
             get {
                 string[] relatedLangs = DeviceAvailableLangs;

@@ -40,6 +40,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\AppInfo.cs" />
     <Compile Include="Services\JsonRequester.cs" />
     <Compile Include="Utilities\Lang.cs" />

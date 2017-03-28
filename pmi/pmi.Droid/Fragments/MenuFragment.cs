@@ -26,6 +26,7 @@ using Calligraphy;
 using pmi.Core.Utilities;
 using Android.Support.V7.Widget;
 using pmi.Droid.Utilities.Events;
+using pmi.Core.Services;
 
 namespace pmi.Droid.Fragments
 {
@@ -67,6 +68,10 @@ namespace pmi.Droid.Fragments
             _navigationView = view.FindViewById<NavigationView>(Resource.Id.navigation_view);
             _navigationView.SetNavigationItemSelectedListener(this);
 
+            ((MainActivity)Activity).SetTitle(AppInfo.NAME);
+
+            OnMenuItemsLoaded(MenuViewModel.MenuItems);
+
             return view;
         }
         
@@ -88,8 +93,9 @@ namespace pmi.Droid.Fragments
                 }
             }
 
-            ToolbarClickListener.Enabled = true;
-            _navigationView.Menu.PerformIdentifierAction(Resource.Id.home, 0);
+            //ToolbarClickListener.Enabled = true;
+
+            //_navigationView.Menu.PerformIdentifierAction(Resource.Id.home, 0);
         }
         
         bool NavigationView.IOnNavigationItemSelectedListener.OnNavigationItemSelected(IMenuItem menuItem)

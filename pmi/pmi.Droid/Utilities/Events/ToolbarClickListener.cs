@@ -48,18 +48,18 @@ namespace pmi.Droid.Utilities.Events
         {
             CLICK_STATUS status = MustGoBack ? CLICK_STATUS.GO_BACK : CLICK_STATUS.OPEN_MENU;
 
-            if (Enabled) {
-                if (MustGoBack)
-                {
-                    _layout.CloseDrawers();
-                }
-                else
-                {
-                    _layout.OpenDrawer(GravityCompat.Start);
-                }
-
-                _callback(status);
+            //if (Enabled) {
+            if (MustGoBack)
+            {
+                _layout.CloseDrawers();
             }
+            else
+            {
+                _layout.OpenDrawer(GravityCompat.Start);
+            }
+
+            _callback(status);
+            //}
         }
     }
 }

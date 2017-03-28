@@ -19,13 +19,14 @@ namespace pmi.Core.Views.Menu
 
         public event OnMenuItemsLoaded TriggerLoadMenuItems;
 
-        public bool MenuItemsLoaded => false;
+        public static List<MenuItem> MenuItems { get; set; }
 
         public MenuViewModel() {
-            JsonRequester.Request(String.Format("{0}/{1}?lang={2}",
-                                        Properties.Resources.ResourceManager.GetString("API_BASE_URL"),
-                                        Properties.Resources.ResourceManager.GetString("API_URL"),
-                                        LangManager.AppLang), OnMenuItemsRequestDone);
+            
+            //JsonRequester.Request(String.Format("{0}/{1}?lang={2}",
+            //                            Properties.Resources.ResourceManager.GetString("API_BASE_URL"),
+            //                            Properties.Resources.ResourceManager.GetString("API_URL"),
+            //                            LangManager.AppLang), OnMenuItemsRequestDone);
         }
 
         public void PerformClick(string item) {

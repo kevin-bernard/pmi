@@ -1,5 +1,6 @@
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using pmi.Core.Services;
 using Xamarin.Forms;
 
 namespace pmi.Core
@@ -16,7 +17,7 @@ namespace pmi.Core
 
             // request a reference to the constructed appstart object 
             var appStart = Mvx.Resolve<IMvxAppStart>();
-
+            
             // register the appstart object
             RegisterAppStart(appStart);
         }

@@ -10,11 +10,13 @@ namespace pmi.Core.Services
     {
         public static string Method => "GET";
 
+        public static RootMenuApi Response;
+
         public delegate void RequestDone(RootMenuApi result);
 
         private static RequestDone _callback;
-
-        public static async void Request(string url, RequestDone callback)
+        
+        public static async void Request(string url, RequestDone callback = null)
         {
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
@@ -34,7 +36,9 @@ namespace pmi.Core.Services
                 using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
                 {
                     string content = streamReader.ReadToEnd();
-                    _callback(Newtonsoft.Json.JsonConvert.DeserializeObject<RootMenuApi>(content));
+                    Response = Newtonsoft.Json.JsonConvert.DeserializeObject<RootMenuApi>(content);
+
+                    _callback?.Invoke(Response);
                 }
             }
             

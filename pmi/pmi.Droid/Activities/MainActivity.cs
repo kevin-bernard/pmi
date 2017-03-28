@@ -11,6 +11,7 @@ using Android.Content.PM;
 using Android.Webkit;
 using Android.Support.V7.Widget;
 using pmi.Droid.Utilities.Events;
+using Android.Support.Design.Widget;
 
 namespace pmi.Droid.Activities
 {
@@ -84,7 +85,13 @@ namespace pmi.Droid.Activities
                 return true;
             }
 
-            return OnKeyDown(keyCode, e);
+            return base.OnKeyDown(keyCode, e);
+        }
+
+        public void Start() {
+
+            FindViewById<NavigationView>(Resource.Id.navigation_view).Menu.PerformIdentifierAction(Resource.Id.home, 0);
+
         }
 
         public void DisplayBackArrowOnMenu() {

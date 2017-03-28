@@ -3,6 +3,9 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using MvvmCross.Droid.Views;
+using pmi.Core.Services;
+using pmi.Core.Utilities;
+using System.Diagnostics;
 
 namespace pmi.Droid
 {
@@ -24,7 +27,7 @@ namespace pmi.Droid
         {
             base.OnCreate(bundle);
 
-            FindViewById<TextView>(Resource.Id.toolbar_title).Text = Core.Services.AppInfo.NAME;
+            FindViewById<TextView>(Resource.Id.toolbar_title).Text = AppInfo.NAME;
         }
     }
 }

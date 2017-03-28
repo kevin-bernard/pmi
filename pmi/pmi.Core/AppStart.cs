@@ -1,6 +1,10 @@
 ﻿
 using MvvmCross.Core.ViewModels;
+using System;
+
 using pmi.Core.Services;
+using System.Diagnostics;
+using pmi.Core.Utilities;
 
 namespace pmi.Core
 {
@@ -18,6 +22,17 @@ namespace pmi.Core
         {
             //LangManager.AppLang = null;
 
+            if (LangManager.HasAppLang || !LangManager.DeviceHasManySubLanguages)
+            {
+                LangManager.InitAppLang();
+                ApiService.LoadMenuItems(OnRequestDone);
+            }
+            else {
+                StartApp();
+            }
+        }
+
+        private void StartApp() {
             if (LangManager.AppLang == null || LangManager.AppLang == string.Empty)
             {
                 if (LangManager.DeviceHasManySubLanguages)
@@ -37,12 +52,12 @@ namespace pmi.Core
 
         private void ShowMainView()
         {
-            if (!LangManager.IsLangAvailable(LangManager.AppLang))
-            {
-                LangManager.InitAppLang();
-            }
-            
             ShowViewModel<Views.MainViewModel>();
+        }
+
+        private void OnRequestDone(RootMenuApi result) {
+            Views.Menu.MenuViewModel.MenuItems = result.items;
+            StartApp();
         }
     }
 }

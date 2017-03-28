@@ -35,6 +35,13 @@ namespace pmi.Droid.Fragments
             return view;
         }
 
+        public override void OnViewCreated(View view, Bundle savedInstanceState)
+        {
+            base.OnViewCreated(view, savedInstanceState);
+
+            //((MainActivity)Activity).Start();
+        }
+
         public override void OnClickedMenu(Utilities.Events.ToolbarClickListener.CLICK_STATUS status)
         {
             if (status == Utilities.Events.ToolbarClickListener.CLICK_STATUS.GO_BACK) {
@@ -52,7 +59,7 @@ namespace pmi.Droid.Fragments
         }
 
         private void OnPageLoadingDone(string url) {
-
+            
             if (url != string.Empty && url != null) {
 
                 if (!MenuFragment.IsUrlContainedInMenu(url))
