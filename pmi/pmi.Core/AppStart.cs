@@ -22,9 +22,8 @@ namespace pmi.Core
         {
             //LangManager.AppLang = null;
 
-            if (LangManager.HasAppLang || !LangManager.DeviceHasManySubLanguages)
+            if (LangManager.HasAppLang)
             {
-                LangManager.InitAppLang();
                 ApiService.LoadMenuItems(OnRequestDone);
             }
             else {
@@ -33,20 +32,19 @@ namespace pmi.Core
         }
 
         private void StartApp() {
-            if (LangManager.AppLang == null || LangManager.AppLang == string.Empty)
+
+            if (LangManager.HasAppLang)
             {
-                if (LangManager.DeviceHasManySubLanguages)
-                {
-                    ShowViewModel<Views.OptionViewModel>();
-                }
-                else
-                {
-                    ShowMainView();
-                }
+                ShowMainView();
+            }
+            else if (LangManager.DeviceHasManySubLanguages)
+            {
+                ShowViewModel<Views.OptionViewModel>();
             }
             else
             {
-                ShowMainView();
+                LangManager.InitAppLang();
+                ApiService.LoadMenuItems(OnRequestDone);
             }
         }
 

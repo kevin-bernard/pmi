@@ -12,7 +12,15 @@ namespace pmi.Core.Views
 {
     public class OptionViewModel : Base.BaseViewModel
     {
-        public string SelectedLang { get; set; }
+
+        public string SelectedLang {
+            get {
+                return LangManager.AppLang;
+            }
+            set {
+                LangManager.AppLang = value;
+            }
+        }
 
         public string DeviceLang {
             get {
@@ -45,8 +53,6 @@ namespace pmi.Core.Views
 
         public void ShowHomeExecuted()
         {
-            LangManager.AppLang = SelectedLang;
-
             ShowViewModel<MainViewModel>();
         }
     }

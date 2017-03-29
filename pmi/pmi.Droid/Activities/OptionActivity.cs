@@ -19,6 +19,7 @@ using Android.Widget;
 using Android.Views;
 using Android.Content.PM;
 using Android.Graphics;
+using pmi.Core.Views.Menu;
 
 namespace pmi.Droid.Activities
 {
@@ -55,6 +56,14 @@ namespace pmi.Droid.Activities
 
             ViewModel.SelectedLang = lang.Value;
 
+            FindViewById(Resource.Id.prgbar).Visibility = ViewStates.Visible;
+            FindViewById<ListView>(Resource.Id.lstview_options).Enabled = false;
+
+            ApiService.LoadMenuItems(OnMenuItemsLoaded);
+        }
+
+        private void OnMenuItemsLoaded(RootMenuApi result) {
+            MenuViewModel.MenuItems = result.items;
             ViewModel.ShowHomeCommand.Execute();
         }
 

@@ -29,8 +29,6 @@ namespace pmi.Droid.Activities
         public DrawerLayout DrawerLayout;
 
         public MvxActionBarDrawerToggle DrawerToggle { get; set; }
-
-        private WebView _webview;
         
         protected override void OnCreate(Bundle bundle)
         {
@@ -43,8 +41,6 @@ namespace pmi.Droid.Activities
 
             if (bundle == null)
                 ViewModel.ShowMenu();
-
-            _webview = FindViewById<WebView>(Resource.Id.webView);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -79,19 +75,15 @@ namespace pmi.Droid.Activities
 
         public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
         {
-            if ((keyCode == Keycode.Back) && _webview != null && _webview.CanGoBack())
+            var webview = FindViewById<WebView>(Resource.Id.webView);
+
+            if ((keyCode == Keycode.Back) && webview != null && webview.CanGoBack())
             {
-                _webview.GoBack();
+                webview.GoBack();
                 return true;
             }
 
-            return base.OnKeyDown(keyCode, e);
-        }
-
-        public void Start() {
-
-            FindViewById<NavigationView>(Resource.Id.navigation_view).Menu.PerformIdentifierAction(Resource.Id.home, 0);
-
+            return false;
         }
 
         public void DisplayBackArrowOnMenu() {

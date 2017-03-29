@@ -2654,8 +2654,8 @@ namespace pmi.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0700aa
-			public const int Image = 2131165354;
+			// aapt resource value: 0x7f0700ab
+			public const int Image = 2131165355;
 			
 			// aapt resource value: 0x7f07000b
 			public const int MvvmCrossTagId = 2131165195;
@@ -2663,11 +2663,11 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07000c
 			public const int MvxBindingTagUnique = 2131165196;
 			
-			// aapt resource value: 0x7f0700ab
-			public const int Title = 2131165355;
+			// aapt resource value: 0x7f0700ac
+			public const int Title = 2131165356;
 			
-			// aapt resource value: 0x7f07009d
-			public const int action0 = 2131165341;
+			// aapt resource value: 0x7f07009e
+			public const int action0 = 2131165342;
 			
 			// aapt resource value: 0x7f07005d
 			public const int action_bar = 2131165277;
@@ -2693,8 +2693,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07005e
 			public const int action_context_bar = 2131165278;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int action_divider = 2131165345;
+			// aapt resource value: 0x7f0700a2
+			public const int action_divider = 2131165346;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -2723,8 +2723,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070021
 			public const int always = 2131165217;
 			
-			// aapt resource value: 0x7f0700b0
-			public const int appbar = 2131165360;
+			// aapt resource value: 0x7f0700b1
+			public const int appbar = 2131165361;
 			
 			// aapt resource value: 0x7f07001e
 			public const int beginning = 2131165214;
@@ -2738,8 +2738,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07000d
 			public const int calligraphy_tag_id = 2131165197;
 			
-			// aapt resource value: 0x7f07009e
-			public const int cancel_action = 2131165342;
+			// aapt resource value: 0x7f07009f
+			public const int cancel_action = 2131165343;
 			
 			// aapt resource value: 0x7f07002e
 			public const int center = 2131165230;
@@ -2753,8 +2753,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070055
 			public const int checkbox = 2131165269;
 			
-			// aapt resource value: 0x7f0700a4
-			public const int chronometer = 2131165348;
+			// aapt resource value: 0x7f0700a5
+			public const int chronometer = 2131165349;
 			
 			// aapt resource value: 0x7f070036
 			public const int clip_horizontal = 2131165238;
@@ -2765,8 +2765,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070022
 			public const int collapseActionView = 2131165218;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int conference = 2131165364;
+			// aapt resource value: 0x7f0700b5
+			public const int conference = 2131165365;
 			
 			// aapt resource value: 0x7f07004d
 			public const int contentPanel = 2131165261;
@@ -2786,20 +2786,20 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070043
 			public const int default_activity_button = 2131165251;
 			
-			// aapt resource value: 0x7f070075
-			public const int design_bottom_sheet = 2131165301;
+			// aapt resource value: 0x7f070076
+			public const int design_bottom_sheet = 2131165302;
+			
+			// aapt resource value: 0x7f07007d
+			public const int design_menu_item_action_area = 2131165309;
 			
 			// aapt resource value: 0x7f07007c
-			public const int design_menu_item_action_area = 2131165308;
+			public const int design_menu_item_action_area_stub = 2131165308;
 			
 			// aapt resource value: 0x7f07007b
-			public const int design_menu_item_action_area_stub = 2131165307;
+			public const int design_menu_item_text = 2131165307;
 			
 			// aapt resource value: 0x7f07007a
-			public const int design_menu_item_text = 2131165306;
-			
-			// aapt resource value: 0x7f070079
-			public const int design_navigation_view = 2131165305;
+			public const int design_navigation_view = 2131165306;
 			
 			// aapt resource value: 0x7f070011
 			public const int disableHome = 2131165201;
@@ -2813,8 +2813,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07001f
 			public const int end = 2131165215;
 			
-			// aapt resource value: 0x7f0700a9
-			public const int end_padder = 2131165353;
+			// aapt resource value: 0x7f0700aa
+			public const int end_padder = 2131165354;
 			
 			// aapt resource value: 0x7f070026
 			public const int enterAlways = 2131165222;
@@ -2852,8 +2852,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070045
 			public const int icon = 2131165253;
 			
-			// aapt resource value: 0x7f0700ac
-			public const int icon_frame = 2131165356;
+			// aapt resource value: 0x7f0700ad
+			public const int icon_frame = 2131165357;
 			
 			// aapt resource value: 0x7f070023
 			public const int ifRoom = 2131165219;
@@ -2861,11 +2861,11 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070042
 			public const int image = 2131165250;
 			
-			// aapt resource value: 0x7f0700a8
-			public const int info = 2131165352;
+			// aapt resource value: 0x7f0700a9
+			public const int info = 2131165353;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int information = 2131165366;
+			// aapt resource value: 0x7f0700b7
+			public const int information = 2131165367;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
@@ -2873,20 +2873,20 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070032
 			public const int left = 2131165234;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int line1 = 2131165346;
+			// aapt resource value: 0x7f0700a3
+			public const int line1 = 2131165347;
 			
-			// aapt resource value: 0x7f0700a6
-			public const int line3 = 2131165350;
+			// aapt resource value: 0x7f0700a7
+			public const int line3 = 2131165351;
 			
-			// aapt resource value: 0x7f0700ae
-			public const int list = 2131165358;
+			// aapt resource value: 0x7f0700af
+			public const int list = 2131165359;
 			
 			// aapt resource value: 0x7f07000e
 			public const int listMode = 2131165198;
 			
-			// aapt resource value: 0x7f0700ad
-			public const int list_container = 2131165357;
+			// aapt resource value: 0x7f0700ae
+			public const int list_container = 2131165358;
 			
 			// aapt resource value: 0x7f070044
 			public const int list_item = 2131165252;
@@ -2894,17 +2894,17 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070073
 			public const int lstview_options = 2131165299;
 			
-			// aapt resource value: 0x7f07007d
-			public const int main_content = 2131165309;
+			// aapt resource value: 0x7f07007e
+			public const int main_content = 2131165310;
 			
 			// aapt resource value: 0x7f07006d
 			public const int main_frame = 2131165293;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int map = 2131165365;
+			// aapt resource value: 0x7f0700b6
+			public const int map = 2131165366;
 			
-			// aapt resource value: 0x7f0700a0
-			public const int media_actions = 2131165344;
+			// aapt resource value: 0x7f0700a1
+			public const int media_actions = 2131165345;
 			
 			// aapt resource value: 0x7f070020
 			public const int middle = 2131165216;
@@ -2912,92 +2912,92 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07003a
 			public const int mini = 2131165242;
 			
-			// aapt resource value: 0x7f07008f
-			public const int mr_art = 2131165327;
-			
-			// aapt resource value: 0x7f070084
-			public const int mr_chooser_list = 2131165316;
-			
-			// aapt resource value: 0x7f070087
-			public const int mr_chooser_route_desc = 2131165319;
+			// aapt resource value: 0x7f070090
+			public const int mr_art = 2131165328;
 			
 			// aapt resource value: 0x7f070085
-			public const int mr_chooser_route_icon = 2131165317;
-			
-			// aapt resource value: 0x7f070086
-			public const int mr_chooser_route_name = 2131165318;
-			
-			// aapt resource value: 0x7f07008c
-			public const int mr_close = 2131165324;
-			
-			// aapt resource value: 0x7f070092
-			public const int mr_control_divider = 2131165330;
-			
-			// aapt resource value: 0x7f070098
-			public const int mr_control_play_pause = 2131165336;
-			
-			// aapt resource value: 0x7f07009b
-			public const int mr_control_subtitle = 2131165339;
-			
-			// aapt resource value: 0x7f07009a
-			public const int mr_control_title = 2131165338;
-			
-			// aapt resource value: 0x7f070099
-			public const int mr_control_title_container = 2131165337;
-			
-			// aapt resource value: 0x7f07008d
-			public const int mr_custom_control = 2131165325;
-			
-			// aapt resource value: 0x7f07008e
-			public const int mr_default_control = 2131165326;
-			
-			// aapt resource value: 0x7f070089
-			public const int mr_dialog_area = 2131165321;
+			public const int mr_chooser_list = 2131165317;
 			
 			// aapt resource value: 0x7f070088
-			public const int mr_expandable_area = 2131165320;
+			public const int mr_chooser_route_desc = 2131165320;
 			
-			// aapt resource value: 0x7f07009c
-			public const int mr_group_expand_collapse = 2131165340;
+			// aapt resource value: 0x7f070086
+			public const int mr_chooser_route_icon = 2131165318;
 			
-			// aapt resource value: 0x7f070090
-			public const int mr_media_main_control = 2131165328;
+			// aapt resource value: 0x7f070087
+			public const int mr_chooser_route_name = 2131165319;
 			
-			// aapt resource value: 0x7f07008b
-			public const int mr_name = 2131165323;
-			
-			// aapt resource value: 0x7f070091
-			public const int mr_playback_control = 2131165329;
-			
-			// aapt resource value: 0x7f07008a
-			public const int mr_title_bar = 2131165322;
+			// aapt resource value: 0x7f07008d
+			public const int mr_close = 2131165325;
 			
 			// aapt resource value: 0x7f070093
-			public const int mr_volume_control = 2131165331;
+			public const int mr_control_divider = 2131165331;
+			
+			// aapt resource value: 0x7f070099
+			public const int mr_control_play_pause = 2131165337;
+			
+			// aapt resource value: 0x7f07009c
+			public const int mr_control_subtitle = 2131165340;
+			
+			// aapt resource value: 0x7f07009b
+			public const int mr_control_title = 2131165339;
+			
+			// aapt resource value: 0x7f07009a
+			public const int mr_control_title_container = 2131165338;
+			
+			// aapt resource value: 0x7f07008e
+			public const int mr_custom_control = 2131165326;
+			
+			// aapt resource value: 0x7f07008f
+			public const int mr_default_control = 2131165327;
+			
+			// aapt resource value: 0x7f07008a
+			public const int mr_dialog_area = 2131165322;
+			
+			// aapt resource value: 0x7f070089
+			public const int mr_expandable_area = 2131165321;
+			
+			// aapt resource value: 0x7f07009d
+			public const int mr_group_expand_collapse = 2131165341;
+			
+			// aapt resource value: 0x7f070091
+			public const int mr_media_main_control = 2131165329;
+			
+			// aapt resource value: 0x7f07008c
+			public const int mr_name = 2131165324;
+			
+			// aapt resource value: 0x7f070092
+			public const int mr_playback_control = 2131165330;
+			
+			// aapt resource value: 0x7f07008b
+			public const int mr_title_bar = 2131165323;
 			
 			// aapt resource value: 0x7f070094
-			public const int mr_volume_group_list = 2131165332;
+			public const int mr_volume_control = 2131165332;
 			
-			// aapt resource value: 0x7f070096
-			public const int mr_volume_item_icon = 2131165334;
+			// aapt resource value: 0x7f070095
+			public const int mr_volume_group_list = 2131165333;
 			
 			// aapt resource value: 0x7f070097
-			public const int mr_volume_slider = 2131165335;
+			public const int mr_volume_item_icon = 2131165335;
+			
+			// aapt resource value: 0x7f070098
+			public const int mr_volume_slider = 2131165336;
 			
 			// aapt resource value: 0x7f070019
 			public const int multiply = 2131165209;
 			
-			// aapt resource value: 0x7f0700b2
-			public const int nav_items = 2131165362;
+			// aapt resource value: 0x7f0700b3
+			public const int nav_items = 2131165363;
 			
 			// aapt resource value: 0x7f07006f
 			public const int navigation_frame = 2131165295;
 			
-			// aapt resource value: 0x7f070078
-			public const int navigation_header_container = 2131165304;
+			// aapt resource value: 0x7f070079
+			public const int navigation_header_container = 2131165305;
 			
-			// aapt resource value: 0x7f070080
-			public const int navigation_view = 2131165312;
+			// aapt resource value: 0x7f070081
+			public const int navigation_view = 2131165313;
 			
 			// aapt resource value: 0x7f070024
 			public const int never = 2131165220;
@@ -3020,11 +3020,14 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07002c
 			public const int pin = 2131165228;
 			
-			// aapt resource value: 0x7f07007f
-			public const int prgbar_webview = 2131165311;
+			// aapt resource value: 0x7f070074
+			public const int prgbar = 2131165300;
 			
-			// aapt resource value: 0x7f0700b3
-			public const int program = 2131165363;
+			// aapt resource value: 0x7f070080
+			public const int prgbar_webview = 2131165312;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int program = 2131165364;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -3101,11 +3104,11 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070016
 			public const int showTitle = 2131165206;
 			
-			// aapt resource value: 0x7f070077
-			public const int snackbar_action = 2131165303;
+			// aapt resource value: 0x7f070078
+			public const int snackbar_action = 2131165304;
 			
-			// aapt resource value: 0x7f070076
-			public const int snackbar_text = 2131165302;
+			// aapt resource value: 0x7f070077
+			public const int snackbar_text = 2131165303;
 			
 			// aapt resource value: 0x7f07002a
 			public const int snap = 2131165226;
@@ -3128,38 +3131,38 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f070034
 			public const int start = 2131165236;
 			
-			// aapt resource value: 0x7f07009f
-			public const int status_bar_latest_event_content = 2131165343;
+			// aapt resource value: 0x7f0700a0
+			public const int status_bar_latest_event_content = 2131165344;
 			
 			// aapt resource value: 0x7f070068
 			public const int submit_area = 2131165288;
 			
-			// aapt resource value: 0x7f0700af
-			public const int switchWidget = 2131165359;
+			// aapt resource value: 0x7f0700b0
+			public const int switchWidget = 2131165360;
 			
 			// aapt resource value: 0x7f070010
 			public const int tabMode = 2131165200;
 			
-			// aapt resource value: 0x7f0700a7
-			public const int text = 2131165351;
+			// aapt resource value: 0x7f0700a8
+			public const int text = 2131165352;
 			
-			// aapt resource value: 0x7f0700a5
-			public const int text2 = 2131165349;
+			// aapt resource value: 0x7f0700a6
+			public const int text2 = 2131165350;
 			
 			// aapt resource value: 0x7f070050
 			public const int textSpacerNoButtons = 2131165264;
 			
-			// aapt resource value: 0x7f070081
-			public const int text_container = 2131165313;
-			
 			// aapt resource value: 0x7f070082
-			public const int text_view_fullname = 2131165314;
+			public const int text_container = 2131165314;
 			
 			// aapt resource value: 0x7f070083
-			public const int text_view_username = 2131165315;
+			public const int text_view_fullname = 2131165315;
 			
-			// aapt resource value: 0x7f0700a3
-			public const int time = 2131165347;
+			// aapt resource value: 0x7f070084
+			public const int text_view_username = 2131165316;
+			
+			// aapt resource value: 0x7f0700a4
+			public const int time = 2131165348;
 			
 			// aapt resource value: 0x7f070046
 			public const int title = 2131165254;
@@ -3167,8 +3170,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07004b
 			public const int title_template = 2131165259;
 			
-			// aapt resource value: 0x7f0700b1
-			public const int toolbar = 2131165361;
+			// aapt resource value: 0x7f0700b2
+			public const int toolbar = 2131165362;
 			
 			// aapt resource value: 0x7f070072
 			public const int toolbar_title = 2131165298;
@@ -3179,8 +3182,8 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07004a
 			public const int topPanel = 2131165258;
 			
-			// aapt resource value: 0x7f070074
-			public const int touch_outside = 2131165300;
+			// aapt resource value: 0x7f070075
+			public const int touch_outside = 2131165301;
 			
 			// aapt resource value: 0x7f070009
 			public const int up = 2131165193;
@@ -3191,11 +3194,11 @@ namespace pmi.Droid
 			// aapt resource value: 0x7f07000a
 			public const int view_offset_helper = 2131165194;
 			
-			// aapt resource value: 0x7f070095
-			public const int volume_item_container = 2131165333;
+			// aapt resource value: 0x7f070096
+			public const int volume_item_container = 2131165334;
 			
-			// aapt resource value: 0x7f07007e
-			public const int webView = 2131165310;
+			// aapt resource value: 0x7f07007f
+			public const int webView = 2131165311;
 			
 			// aapt resource value: 0x7f070025
 			public const int withText = 2131165221;

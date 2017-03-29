@@ -51,5 +51,12 @@
                     android:dividerHeight="1dp" />
             </TableRow>
         </TableLayout>
+        <ProgressBar
+          android:id="@+id/prgbar"
+          android:layout_width="wrap_content"
+          android:layout_centerInParent="true"
+          android:layout_height="wrap_content"
+          android:visibility="invisible"
+          android:layout_gravity="center" />
     </android.support.design.widget.CoordinatorLayout>
-w</android.support.v4.widget.DrawerLayout>
+</android.support.v4.widget.DrawerLayout>

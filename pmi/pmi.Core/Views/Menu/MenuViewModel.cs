@@ -22,7 +22,6 @@ namespace pmi.Core.Views.Menu
         public static List<MenuItem> MenuItems { get; set; }
 
         public MenuViewModel() {
-            
             //JsonRequester.Request(String.Format("{0}/{1}?lang={2}",
             //                            Properties.Resources.ResourceManager.GetString("API_BASE_URL"),
             //                            Properties.Resources.ResourceManager.GetString("API_URL"),
