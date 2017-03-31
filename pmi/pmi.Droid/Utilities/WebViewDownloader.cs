@@ -2,6 +2,7 @@ using System.Net;
 using System.IO;
 using System.Text;
 using System;
+using System.Linq;
 using System.Security.AccessControl;
 using Android.App;
 using Android.Content;
@@ -47,14 +48,21 @@ namespace pmi.Droid.Utilities
                 }
             }
 
-            string documentsPath = Path.Combine(path, "download.pdf");
+            string documentsPath = Path.Combine(path, String.Format("pmi_download_{0}.pdf", Directory.EnumerateFiles(path).Count()));
 
             webClient.DownloadFileCompleted += ((s, e) =>
             {
-                Toast.MakeText(context,
-                    String.Format("Done writing file at {0}", documentsPath), ToastLength.Long).Show();
+                var msg = String.Format("Done writing file at {0}", documentsPath);
+
+                if (e.Error != null)
+                {
+                    msg = String.Format("Error writing file at {0}", documentsPath);
+                }
+                
+                Toast.MakeText(context, msg, ToastLength.Long).Show();
 
             });
+
             webClient.DownloadFileAsync(new Uri(url), documentsPath);
         }
     }
