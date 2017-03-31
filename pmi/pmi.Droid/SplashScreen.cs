@@ -26,7 +26,6 @@ namespace pmi.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             FindViewById<TextView>(Resource.Id.toolbar_title).Text = AppInfo.NAME;
         }
     }

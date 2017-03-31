@@ -4,7 +4,11 @@ using System;
 
 using pmi.Core.Services;
 using System.Diagnostics;
+using System.Linq;
+using MvvmCross.Platform;
 using pmi.Core.Utilities;
+using pmi.Core.Views;
+using pmi.Core.Views.Content;
 
 namespace pmi.Core
 {
@@ -24,7 +28,7 @@ namespace pmi.Core
 
             if (LangManager.HasAppLang)
             {
-                ApiService.LoadMenuItems(OnRequestDone);
+                ApiService.LoadMenuItems(OnLoadMenuItemsRequestDone);
             }
             else {
                 StartApp();
@@ -44,17 +48,18 @@ namespace pmi.Core
             else
             {
                 LangManager.InitAppLang();
-                ApiService.LoadMenuItems(OnRequestDone);
+                ApiService.LoadMenuItems(OnLoadMenuItemsRequestDone);
             }
         }
 
         private void ShowMainView()
         {
-            ShowViewModel<Views.MainViewModel>();
+            ShowViewModel<Views.MainViewModel>(true);
         }
 
-        private void OnRequestDone(RootMenuApi result) {
+        private void OnLoadMenuItemsRequestDone(RootMenuApi result) {
             Views.Menu.MenuViewModel.MenuItems = result.items;
+
             StartApp();
         }
     }

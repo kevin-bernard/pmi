@@ -12,6 +12,8 @@ using Android.Webkit;
 using Android.Support.V7.Widget;
 using pmi.Droid.Utilities.Events;
 using Android.Support.Design.Widget;
+using pmi.Core.Views.Menu;
+using pmi.Droid.Fragments;
 
 namespace pmi.Droid.Activities
 {
@@ -20,7 +22,7 @@ namespace pmi.Droid.Activities
         Theme = "@style/AppTheme",
         Icon = "@drawable/icon",
         ScreenOrientation = ScreenOrientation.Portrait,
-        LaunchMode = LaunchMode.SingleInstance,
+        LaunchMode = LaunchMode.Multiple,
         Name = "pmi.droid.activities.MainActivity"
     )]
     public class MainActivity : BaseActivity<MainViewModel>
@@ -80,10 +82,21 @@ namespace pmi.Droid.Activities
             if ((keyCode == Keycode.Back) && webview != null && webview.CanGoBack())
             {
                 webview.GoBack();
+
+                var item = MenuViewModel.GetItemFromUrl(webview.OriginalUrl);
+
+                if (item != null) {
+                    SetTitle(item.menu_title);
+                }
+
                 return true;
             }
 
-            return false;
+            Finish();
+            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+
+            return true;
+            //return base.OnKeyDown(keyCode, e);
         }
 
         public void DisplayBackArrowOnMenu() {

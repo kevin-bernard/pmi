@@ -27,7 +27,7 @@ namespace pmi.Droid.Activities
         Theme = "@style/AppTheme",
         Icon = "@drawable/icon",
         ScreenOrientation = ScreenOrientation.Portrait,
-        LaunchMode = LaunchMode.SingleInstance,
+        LaunchMode = LaunchMode.Multiple,
         Name = "pmi.droid.activities.OptionActivity"
     )]
     public class OptionActivity : BaseActivity<OptionViewModel>
@@ -81,14 +81,17 @@ namespace pmi.Droid.Activities
             img.SetImageResource(Resources.GetIdentifier(String.Format("drawable/{0}", item.ImageName), null, PackageName));
             
             var txt = view.FindViewById<TextView>(Resource.Id.Title);
-
+            
             txt.Text = item.ToString();
 
             SetFont(txt, "PTSans-Regular.ttf");
 
+            txt.LayoutParameters.Height = LinearLayout.LayoutParams.WrapContent;
+            txt.LayoutParameters.Width = LinearLayout.LayoutParams.WrapContent;
+
             try
             {
-                txt.SetPadding(img.Drawable.IntrinsicWidth + img.PaddingLeft + 40, img.Drawable.IntrinsicHeight / 2, 0, 0);
+                txt.SetPadding(img.Drawable.IntrinsicWidth + img.PaddingLeft + 40, 0, 0, 0);
             }
             catch (Exception e) {
                 Console.WriteLine(e.Message);

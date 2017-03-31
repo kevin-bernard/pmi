@@ -10,6 +10,6 @@ namespace pmi.Core.Views.Content
 {
     public class ContentViewModel : BaseViewModel
     {
-        
+
     }
 }

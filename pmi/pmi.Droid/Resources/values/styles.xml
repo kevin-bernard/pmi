@@ -40,7 +40,7 @@
     </style>
 
     <style name="MenuNavigation">
-      <item name="android:textSize">@dimen/text_huge</item>
+      <item name="android:textSize">@dimen/text_very_huge</item>
     </style>
   
     <style name="MenuTitle" parent="AppTheme.Base">

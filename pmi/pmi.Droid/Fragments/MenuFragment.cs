@@ -37,21 +37,7 @@ namespace pmi.Droid.Fragments
         private NavigationView _navigationView;
 
         private static List<MenuItem> _items = new List<MenuItem>();
-
-        public static bool IsUrlContainedInMenu(string url)
-        {
-
-            foreach (MenuItem item in _items)
-            {
-                if (url == item.url)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
+        
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -69,12 +55,12 @@ namespace pmi.Droid.Fragments
             _navigationView.SetNavigationItemSelectedListener(this);
 
             ((MainActivity)Activity).SetTitle(AppInfo.NAME);
-
+            
             OnMenuItemsLoaded(MenuViewModel.MenuItems);
 
             return view;
         }
-        
+       
         public void OnSwitchUrl(string url) {
             Activity.FindViewById<WebView>(Resource.Id.webView).LoadUrl(url);
         }
@@ -90,26 +76,27 @@ namespace pmi.Droid.Fragments
                 {
                     var item = _items[i];
                     menuItem.SetTitle(item.menu_title);
+
+                    if (i == 0) {
+                        CheckItem(menuItem);
+                    }
                 }
+
+
             }
 
             //ToolbarClickListener.Enabled = true;
-
-            //_navigationView.Menu.PerformIdentifierAction(Resource.Id.home, 0);
         }
         
         bool NavigationView.IOnNavigationItemSelectedListener.OnNavigationItemSelected(IMenuItem menuItem)
         {
-            menuItem.SetCheckable(true);
-            menuItem.SetChecked(true);
-            
             var curItem = _items.Find(i => i.menu_title.Equals(menuItem.TitleFormatted.ToString()));
 
             if (curItem != null) {
 
+                CheckItem(menuItem);
                 OnSwitchUrl(curItem.url);
-                ((MainActivity)Activity).SetTitle(menuItem.TitleFormatted.ToString());
-                ((MainActivity)Activity).DrawerLayout.CloseDrawers();
+
             }
 
             return true;
@@ -117,6 +104,15 @@ namespace pmi.Droid.Fragments
         
         private IMenuItem GetItem(int id) {
             return _navigationView.Menu.FindItem(id);
+        }
+
+        private void CheckItem(IMenuItem menuItem) {
+
+            menuItem.SetCheckable(true);
+            menuItem.SetChecked(true);
+
+            ((MainActivity)Activity).SetTitle(menuItem.TitleFormatted.ToString());
+            ((MainActivity)Activity).DrawerLayout.CloseDrawers();
         }
     }
 }

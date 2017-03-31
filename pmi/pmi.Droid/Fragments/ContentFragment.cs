@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -7,8 +9,11 @@ using pmi.Core.Views.Content;
 using pmi.Core.Views;
 using MvvmCross.Droid.Shared.Attributes;
 using Android.Webkit;
+using Java.Lang;
+using pmi.Core.Views.Menu;
 using pmi.Droid.Activities;
 using static Android.Webkit.WebSettings;
+using String = System.String;
 
 namespace pmi.Droid.Fragments
 {
@@ -27,21 +32,22 @@ namespace pmi.Droid.Fragments
             _webview = view.FindViewById<WebView>(Resource.Id.webView);
             _webview.SetWebViewClient(new WebViewClient());
             _webview.Settings.JavaScriptEnabled = true;
-            _webview.SetFitsSystemWindows(true);
+            //_webview.SetFitsSystemWindows(true);
             _webview.SetWebViewClient(new Utilities.WebViewClient(view.FindViewById<ProgressBar>(Resource.Id.prgbar_webview), OnPageLoadingDone));
             _webview.Settings.DefaultZoom = ZoomDensity.Far;
             _webview.Alpha = 0;
+            _webview.Settings.AllowUniversalAccessFromFileURLs = true;
+
+            _webview.SetDownloadListener(new Utilities.WebViewDownloader(Context));
+
+            if (MenuViewModel.MenuItems?.Count > 0)
+            {
+                _webview.LoadUrl(MenuViewModel.MenuItems.First().url);
+            }
 
             return view;
         }
-
-        public override void OnViewCreated(View view, Bundle savedInstanceState)
-        {
-            base.OnViewCreated(view, savedInstanceState);
-
-            //((MainActivity)Activity).Start();
-        }
-
+        
         public override void OnClickedMenu(Utilities.Events.ToolbarClickListener.CLICK_STATUS status)
         {
             if (status == Utilities.Events.ToolbarClickListener.CLICK_STATUS.GO_BACK) {
@@ -58,18 +64,17 @@ namespace pmi.Droid.Fragments
             OnPageLoadingDone(_webview.Url);
         }
 
-        private void OnPageLoadingDone(string url) {
-            
-            if (url != string.Empty && url != null) {
+        private void OnPageLoadingDone(string url)
+        {
+            if (!Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute)) return;
 
-                if (!MenuFragment.IsUrlContainedInMenu(url))
-                {
-                    ((MainActivity)Activity).DisplayBackArrowOnMenu();
-                }
-                else
-                {
-                    ((MainActivity)Activity).DisplayIconNavigateOnMenu();
-                }
+            if (!MenuViewModel.IsUrlContainedInMenu(url))
+            {
+                ((MainActivity)Activity).DisplayBackArrowOnMenu();
+            }
+            else
+            {
+                ((MainActivity)Activity).DisplayIconNavigateOnMenu();
             }
         }                
     }

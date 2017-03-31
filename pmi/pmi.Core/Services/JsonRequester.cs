@@ -1,47 +1,28 @@
-﻿using pmi.Core.Utilities;
-using System;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
-
+﻿
 namespace pmi.Core.Services
 {
-    public static class JsonRequester
+    public static class JsonRequester<T> where T : class
     {
         public static string Method => "GET";
 
-        public static RootMenuApi Response;
+        public static T Response;
 
-        public delegate void RequestDone(RootMenuApi result);
+        public delegate void RequestDone(T result);
 
         private static RequestDone _callback;
         
-        public static async void Request(string url, RequestDone callback = null)
+        public static void Request(string url, RequestDone callback = null)
         {
-
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
-
-            request.ContentType = "application/json";
-            request.Method = Method;
-
             _callback = callback;
 
-            var responseTask = Task.Factory.FromAsync<WebResponse>
-                                      (request.BeginGetResponse,
-                                       request.EndGetResponse,
-                                       null);
+            WebRequester.GetResponse(url, "application/json", Method, GetResponse);
+        }
 
-            using (var response = (HttpWebResponse)await responseTask)
-            {
-                using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
-                {
-                    string content = streamReader.ReadToEnd();
-                    Response = Newtonsoft.Json.JsonConvert.DeserializeObject<RootMenuApi>(content);
+        private static void GetResponse(string response)
+        {
+            Response = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response);
 
-                    _callback?.Invoke(Response);
-                }
-            }
-            
+            _callback?.Invoke(Response);
         }
     }
 }

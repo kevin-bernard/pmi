@@ -21,13 +21,26 @@ namespace pmi.Core.Views.Menu
 
         public static List<MenuItem> MenuItems { get; set; }
 
-        public MenuViewModel() {
-            //JsonRequester.Request(String.Format("{0}/{1}?lang={2}",
-            //                            Properties.Resources.ResourceManager.GetString("API_BASE_URL"),
-            //                            Properties.Resources.ResourceManager.GetString("API_URL"),
-            //                            LangManager.AppLang), OnMenuItemsRequestDone);
+        public static bool IsUrlContainedInMenu(string url)
+        {
+            return GetItemFromUrl(url) != null;
         }
 
+        public static MenuItem GetItemFromUrl(string url)
+        {
+            MenuItems = MenuItems ?? new List<MenuItem>();
+
+            foreach (MenuItem item in MenuItems)
+            {
+                if (url == item.url)
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+        
         public void PerformClick(string item) {
             SwitchUrlAction(item.ToUpper());
         }

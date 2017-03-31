@@ -43,6 +43,7 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\AppInfo.cs" />
     <Compile Include="Services\JsonRequester.cs" />
+    <Compile Include="Services\WebRequester.cs" />
     <Compile Include="Utilities\Lang.cs" />
     <Compile Include="Services\LangAdapter.cs" />
     <Compile Include="Services\LangManager.cs" />

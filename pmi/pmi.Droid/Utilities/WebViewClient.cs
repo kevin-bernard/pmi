@@ -30,7 +30,7 @@ namespace pmi.Droid.Utilities
             //    view.Alpha = 0;
             //}));
 
-            AnimateTransition(view, true);
+            AnimateTransition(view, true);  
 
             base.OnPageStarted(view, url, favicon);
         }
