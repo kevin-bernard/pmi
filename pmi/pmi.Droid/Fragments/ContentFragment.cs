@@ -39,7 +39,7 @@ namespace pmi.Droid.Fragments
             _webview.Settings.AllowUniversalAccessFromFileURLs = true;
 
             _webview.SetDownloadListener(new Utilities.WebViewDownloader(Context));
-
+            
             if (MenuViewModel.MenuItems?.Count > 0)
             {
                 _webview.LoadUrl(MenuViewModel.MenuItems.First().url);

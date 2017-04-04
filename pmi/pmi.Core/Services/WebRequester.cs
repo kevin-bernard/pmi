@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Java.Lang.Reflect;
 
 namespace pmi.Core.Services
 {
@@ -13,17 +12,32 @@ namespace pmi.Core.Services
     {
         public delegate void RequestDone(string response);
         
-        public static async void GetResponse(string url, string contentType, string method, RequestDone callback)
+        public static void GetResponse(string url, string contentType, string method, RequestDone callback)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(url));
 
-            request.ContentType = "application/json";
+            request.ContentType = contentType;
             request.Method = method;
 
+            try
+            {
+                SendRequest(request, callback);
+            }
+            catch (Exception e)
+            {
+                AppManager.CurrentApplication.Error = e;
+
+                callback(string.Empty);
+            }
+
+        }
+
+        private static async void SendRequest(HttpWebRequest request, RequestDone callback)
+        {
             var responseTask = Task.Factory.FromAsync<WebResponse>
-                                      (request.BeginGetResponse,
-                                       request.EndGetResponse,
-                                       null);
+                                                  (request.BeginGetResponse,
+                                                   request.EndGetResponse,
+                                                   null);
 
             using (var response = (HttpWebResponse)await responseTask)
             {

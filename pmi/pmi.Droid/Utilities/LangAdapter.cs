@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using Android.Views;
 using Android.App;
 using Android;
-
 using pmi.Core.Utilities;
 
-namespace pmi.Core.Services
+namespace pmi.Droid.Utilities
 {
     public class LangAdapter : BaseAdapter<Lang>
     {

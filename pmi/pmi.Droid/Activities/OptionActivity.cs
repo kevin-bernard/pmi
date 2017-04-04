@@ -37,7 +37,7 @@ namespace pmi.Droid.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            
             SetContentView(Resource.Layout.activity_options);
             
             ListView lst = FindViewById<ListView>(Resource.Id.lstview_options);

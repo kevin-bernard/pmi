@@ -241,6 +241,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Utilities\Events\ToolbarClickListener.cs" />
+    <Compile Include="Utilities\LangAdapter.cs" />
     <Compile Include="Utilities\MenuItemValueMapper.cs" />
     <Compile Include="Utilities\MvxPanelPopToRootPresentationHint.cs" />
     <Compile Include="Utilities\WebViewClient.cs" />
@@ -275,6 +276,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\splash_screen.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\error_screen.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

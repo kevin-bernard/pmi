@@ -12,6 +12,8 @@ using Android.Webkit;
 using Android.Support.V7.Widget;
 using pmi.Droid.Utilities.Events;
 using Android.Support.Design.Widget;
+using Android.Widget;
+using pmi.Core;
 using pmi.Core.Views.Menu;
 using pmi.Droid.Fragments;
 
@@ -35,14 +37,22 @@ namespace pmi.Droid.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
-            
-            DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
-            if (bundle == null)
-                ViewModel.ShowMenu();
+            if (AppManager.CurrentApplication.Error == null)
+            {
+                // Set our view from the "main" layout resource
+                SetContentView(Resource.Layout.activity_main);
+
+                DrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+
+                if (bundle == null)
+                    ViewModel.ShowMenu();
+            }
+            else
+            {
+                SetContentView(Resource.Layout.error_screen);
+                FindViewById<TextView>(Resource.Id.error_message).Text = "No internet connection";
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

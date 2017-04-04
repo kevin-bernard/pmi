@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDisplayName</key>
-	<string>XPlatformMenus.Touch</string>
 	<key>CFBundleIdentifier</key>
 	<string></string>
 	<key>CFBundleShortVersionString</key>
@@ -13,7 +11,6 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
-		<integer>2</integer>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -28,11 +25,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MinimumOSVersion</key>
-	<string>7.0</string>
 	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Default-568h@2x.png</string>
-	</array>
+	<array/>
+	<key>CFBundleDisplayName</key>
+	<string>PMI</string>
+	<key>MinimumOSVersion</key>
+	<string>6.0</string>
 </dict>
 </plist>

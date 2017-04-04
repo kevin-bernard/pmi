@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace pmi.Core.Services
 {
     public static class JsonRequester<T> where T : class
@@ -20,8 +22,15 @@ namespace pmi.Core.Services
 
         private static void GetResponse(string response)
         {
-            Response = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response);
-
+            try
+            {
+                Response = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response);
+            }
+            catch
+            {
+                Response = Activator.CreateInstance(typeof(T)) as T;
+            }
+            
             _callback?.Invoke(Response);
         }
     }

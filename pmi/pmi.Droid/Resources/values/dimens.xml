@@ -30,7 +30,7 @@
     <dimen name="text_medium">15sp</dimen>
     <dimen name="text_large">16sp</dimen>
     <dimen name="text_huge">17sp</dimen>
-    <dimen name="text_very_huge">19sp</dimen>
+    <dimen name="text_very_huge">18sp</dimen>
 
     <dimen name="design_navigation_icon_padding">15dp</dimen>
   
@@ -38,8 +38,8 @@
     <dimen name="menu_divider_padding_right">10dp</dimen>
     <dimen name="menu_divider_padding_top">35dp</dimen>
   
-    <dimen name="design_navigation_icon_size">24dp</dimen>
-    <dimen name="navigation_icon_size">24dp</dimen>
+    <dimen name="design_navigation_icon_size">20dp</dimen>
+    <dimen name="navigation_icon_size">20dp</dimen>
   
     <dimen name="navigation_padding_top">100dp</dimen>
     <dimen name="navigation_padding_left">20dp</dimen>

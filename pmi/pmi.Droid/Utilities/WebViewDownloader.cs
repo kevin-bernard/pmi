@@ -30,40 +30,57 @@ namespace pmi.Droid.Utilities
                     long contentLength)
         {
 
-            WebClient webClient = new WebClient();
+            string dir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
-            var path =
-                Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).Path;
-
-            if (!Directory.Exists(path))
+            if (!Directory.Exists(dir))
             {
                 try
                 {
-                    Directory.CreateDirectory(path);
+                    Directory.CreateDirectory(dir);
                 }
                 catch
                 {
-                    Toast.MakeText(context, String.Format("Fail to create directory at {0}", path), ToastLength.Long).Show();
+                    Toast.MakeText(context, String.Format("Fail to create directory at {0}", dir), ToastLength.Long).Show();
                     return;
                 }
             }
 
-            string documentsPath = Path.Combine(path, String.Format("pmi_download_{0}.pdf", Directory.EnumerateFiles(path).Count()));
+            var downloadManager = (DownloadManager) context.GetSystemService(Context.DownloadService);
+            string filename = "pmi_download.pdf";
 
-            webClient.DownloadFileCompleted += ((s, e) =>
+            context.RegisterReceiver(new Receiver(Path.Combine(Android.OS.Environment.DirectoryDownloads, filename)), new IntentFilter(DownloadManager.ActionDownloadComplete));
+
+            DownloadManager.Request request = new DownloadManager.Request(Android.Net.Uri.Parse(url));
+            request.SetDestinationInExternalPublicDir(Android.OS.Environment.DirectoryDownloads, filename);
+            request.SetNotificationVisibility(DownloadVisibility.VisibleNotifyCompleted); // to notify when download is complete
+            request.AllowScanningByMediaScanner();// if you want to be available from media players
+
+            try
             {
-                var msg = String.Format("Done writing file at {0}", documentsPath);
+                downloadManager.Enqueue(request);
+            }
+            catch
+            {
+                Toast.MakeText(context, String.Format("Error writing file at {0}", dir), ToastLength.Long).Show();
+            }
+            
+            //webClient.DownloadFileAsync(new Uri(url), documentsPath);
+        }
+    }
 
-                if (e.Error != null)
-                {
-                    msg = String.Format("Error writing file at {0}", documentsPath);
-                }
-                
-                Toast.MakeText(context, msg, ToastLength.Long).Show();
+    class Receiver : BroadcastReceiver
+    {
+        private string _file;
 
-            });
+        public Receiver(string file)
+        {
+            _file = file;
+        }
 
-            webClient.DownloadFileAsync(new Uri(url), documentsPath);
+        public override void OnReceive(Context context, Intent intent)
+        {
+            var msg = String.Format("Done writing file at {0}", _file);
+            Toast.MakeText(context, msg, ToastLength.Long).Show();
         }
     }
 

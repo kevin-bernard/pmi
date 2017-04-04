@@ -14,6 +14,7 @@ namespace pmi.iOS
     {
         // class-level declarations
         private UIWindow _window;
+        
 
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -35,6 +36,11 @@ namespace pmi.iOS
 
             // make the window visible
             _window.MakeKeyAndVisible();
+
+            if (_window.RootViewController == null)
+            {
+                _window.RootViewController = new SplashScreenController();
+            }
 
             return true;
         }

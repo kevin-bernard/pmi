@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Reflection;
 using UIKit;
 
 using MvvmCross.iOS.Platform;
@@ -8,6 +10,7 @@ using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.iOS.Support.SidePanels;
 using MvvmCross.iOS.Support;
 using MvvmCross.iOS.Support.JASidePanels;
+using pmi.Core;
 
 namespace pmi.iOS
 {
@@ -26,13 +29,24 @@ namespace pmi.iOS
             _window = window;
         }
 
-        /// <summary>Creates the application.</summary>
+	    protected override IEnumerable<Assembly> GetViewAssemblies()
+	    {
+            var list = new List<Assembly>();
+            //list.AddRange(base.GetViewModelAssemblies());
+
+	        list.Add(typeof(Acr.Settings.Settings).Assembly);
+	        list.Add(typeof(Acr.DeviceInfo.DeviceInfo).Assembly);
+
+            return base.GetViewAssemblies();
+	    }
+
+	    /// <summary>Creates the application.</summary>
         /// <returns>The IMvxApplication <see langword="object"/></returns>
         protected override IMvxApplication CreateApp()
         {
-            return new Core.App();
+            return AppManager.CurrentApplication;
         }
-
+        
         /// <summary>Creates the debug trace.</summary>
         /// <returns>The IMvxTrace <see langword="object"/></returns>
         protected override IMvxTrace CreateDebugTrace()

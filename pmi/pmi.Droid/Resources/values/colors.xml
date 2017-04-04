@@ -27,4 +27,6 @@
     <color name="options_table_line">#CDCFCE</color>
     <color name="options_bg_start">#FFFFFF</color>
     <color name="options_bg_end">#8FD8F5</color>
+
+    <color name="error">#EF7C6D</color>
 </resources>
