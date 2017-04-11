@@ -23,30 +23,34 @@ namespace pmi.Core.Services
             {
                 SendRequest(request, callback);
             }
-            catch (Exception e)
+            catch
             {
-                AppManager.CurrentApplication.Error = e;
+                AppManager.CurrentApplication.Error = new Exception("Please connect to the internet and restart the application.");
 
                 callback(string.Empty);
             }
 
         }
 
-        private static async void SendRequest(HttpWebRequest request, RequestDone callback)
+        private static void SendRequest(HttpWebRequest request, RequestDone callback)
         {
             var responseTask = Task.Factory.FromAsync<WebResponse>
                                                   (request.BeginGetResponse,
                                                    request.EndGetResponse,
                                                    null);
+           
+            responseTask.ContinueWith(t => ReadStreamFromResponse(t.Result, callback));
+            responseTask.Wait(3000);
+        }
 
-            using (var response = (HttpWebResponse)await responseTask)
+        private static void ReadStreamFromResponse(WebResponse response, RequestDone callback)
+        {
+            
+            using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
             {
-                using (StreamReader streamReader = new StreamReader(response.GetResponseStream()))
-                {
-                    string content = streamReader.ReadToEnd();
+                string content = streamReader.ReadToEnd();
 
-                    callback(content);
-                }
+                callback(content);
             }
         }
 

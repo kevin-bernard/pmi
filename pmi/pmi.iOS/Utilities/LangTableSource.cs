@@ -21,7 +21,8 @@ namespace pmi.iOS.Utilities
         string CellIdentifier = "TableCell";
 
         private double tableHeight = 0;
-        
+
+
         public LangTableSource(List<Lang> items, OptionView view)
         {
             TableItems = items;
@@ -60,6 +61,8 @@ namespace pmi.iOS.Utilities
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             View.UpdateLang(TableItems[indexPath.Row]);
+
+            tableView.UserInteractionEnabled = false;
         }
     }
 }

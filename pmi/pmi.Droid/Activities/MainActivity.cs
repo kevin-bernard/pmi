@@ -50,8 +50,18 @@ namespace pmi.Droid.Activities
             }
             else
             {
-                SetContentView(Resource.Layout.error_screen);
-                FindViewById<TextView>(Resource.Id.error_message).Text = "No internet connection";
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+                alert.SetTitle("Error");
+                alert.SetMessage(AppManager.CurrentApplication.Error.Message);
+
+                alert.SetPositiveButton("OK", (senderAlert, args) => {
+                    Finish();
+                    Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+                });
+
+                Dialog dialog = alert.Create();
+                dialog.Show();
             }
         }
 

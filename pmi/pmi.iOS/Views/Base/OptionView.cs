@@ -31,6 +31,8 @@ namespace pmi.iOS.Views
         [GeneratedCode("iOS Designer", "1.0")]
         public UIView Layout { get; set; }
 
+        private Spinner _spinner;
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -52,14 +54,24 @@ namespace pmi.iOS.Views
             TableView.BackgroundColor = Style.OptionView.TableBackgroundColor;
             TableView.SeparatorInset = UIEdgeInsets.Zero;
             TableView.TintColor = Style.OptionView.ContentColor;
+
+            _spinner = new Spinner(Layout);
+
+            NavigationController.SetNavigationBarHidden(true, true);
+        }
+        
+        public override bool PrefersStatusBarHidden()
+        {
+            return true;
         }
 
         public void UpdateLang(Lang lang)
         {
             ViewModel.SelectedLang = lang.Value;
 
-            ApiService.LoadMenuItems(OnMenuItemsLoaded);
+            _spinner.Display();
 
+            ApiService.LoadMenuItems(OnMenuItemsLoaded);
         }
 
         private void OnMenuItemsLoaded(RootMenuApi result)

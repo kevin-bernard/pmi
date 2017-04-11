@@ -1,6 +1,9 @@
-﻿using Foundation;
+﻿using CoreGraphics;
+using Foundation;
 using pmi.Core.Views;
 using MvvmCross.iOS.Support.SidePanels;
+using pmi.Core;
+using UIKit;
 
 namespace pmi.iOS.Views
 {
@@ -12,7 +15,28 @@ namespace pmi.iOS.Views
         {
             base.ViewDidLoad();
 
-            ViewModel.ShowMenu();
+            if (AppManager.CurrentApplication.Error == null)
+            {
+                ViewModel.ShowMenu();
+            }
+            else
+            {
+                UIAlertView alert = new UIAlertView();
+
+                alert.Title = "Error";
+
+                alert.AddButton("OK");
+
+                alert.Message = AppManager.CurrentApplication.Error.Message;
+
+                alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+                alert.Clicked += (object s, UIButtonEventArgs ev) => {
+                    NSThread.Exit();
+                };
+
+                alert.Show();
+            }
+            
         }
     }   
 }

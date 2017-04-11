@@ -18,6 +18,8 @@ namespace pmi.iOS.Utilities
 
         public const double PADDING_LEFT = 60;
         
+        private static int count = 1;
+
         public LangTableRow(NSString cellId) : base (UITableViewCellStyle.Value2, cellId)
         {
 
@@ -27,8 +29,10 @@ namespace pmi.iOS.Utilities
                 TextColor = Style.OptionView.ContentColor,
                 BackgroundColor = UIColor.Clear,
                 Editable = false,
-                Selectable = false
+                Selectable = false,
+                TextContainerInset = UIEdgeInsets.Zero
             };
+
 
             imageView = new UIImageView();
 
@@ -42,6 +46,11 @@ namespace pmi.iOS.Utilities
             ContentView.TintColor = Style.OptionView.ContentColor;
             ContentView.AddSubviews(new UIView[] { imageView, textLabel });
 
+            if (count++ % 2 == 0)
+            {
+                //ContentView.BackgroundColor = UIColor.Black;
+            }
+
         }
 
         public override void LayoutSubviews()
@@ -49,7 +58,10 @@ namespace pmi.iOS.Utilities
             base.LayoutSubviews();
 
             imageView.Frame = new CGRect(PADDING_LEFT, (ContentView.Bounds.Height / 2) - (imageView.Image.Size.Height / 2), imageView.Image.Size.Width, imageView.Image.Size.Height);
-            textLabel.Frame = new CGRect(PADDING_LEFT + imageView.Frame.Width + 10, (ContentView.Bounds.Height / 2) - (textLabel.ContentSize.Height / 2), ContentView.Bounds.Width - 63, 25);
+
+            textLabel.Frame = new CGRect(PADDING_LEFT + imageView.Frame.Width + 10, (ContentView.Bounds.Height / 2) - (+textLabel.ContentSize.Height / 2), ContentView.Frame.Width, ContentView.Frame.Size.Height);
+
+            textLabel.SizeToFit();
         }
 
         public void UpdateCell(string title, UIImage image)

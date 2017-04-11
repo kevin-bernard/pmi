@@ -1,3 +1,4 @@
+using System;
 using UIKit;
 using pmi.Core.Views.Base;
 using MvvmCross.iOS.Views;
@@ -12,7 +13,7 @@ namespace pmi.iOS.Views
         #region Fields
 
         protected bool NavigationBarEnabled = false;
-
+        
         public new TViewModel ViewModel
         {
             get { return (TViewModel)base.ViewModel; }
@@ -23,14 +24,32 @@ namespace pmi.iOS.Views
 
         #region Public Methods
 
+        public BaseViewController()
+        {
+
+        }
+
+        public BaseViewController(IntPtr arg) : base(arg)
+        {
+
+        }
+
+        public override bool PrefersStatusBarHidden()
+        {
+            return true;
+        }
+
         public override void ViewDidLoad()
         {
             EdgesForExtendedLayout = UIRectEdge.None;
             View.BackgroundColor = UIColor.White;
+            UIApplication.SharedApplication.SetStatusBarHidden(true, true);
+            //NavigationController.SetNavigationBarHidden(true, true);
+            //NavigationController.SetToolbarHidden(true, true);
 
             base.ViewDidLoad();
         }
-
+        
         #endregion
     }
 }

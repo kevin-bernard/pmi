@@ -1,54 +1,99 @@
-﻿using MvvmCross.Binding.BindingContext;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Linq;
+using MvvmCross.Binding.BindingContext;
 using CoreGraphics;
 using Foundation;
 using UIKit;
 using Cirrious.FluentLayouts.Touch;
+using MvvmCross.Binding.ExtensionMethods;
 using MvvmCross.iOS.Support.SidePanels;
+using pmi.Core.Utilities;
 using pmi.Core.Views.Menu;
+using pmi.iOS.Utilities;
+using pmi.iOS.Utilities.Components;
 
 namespace pmi.iOS.Views
 {
-    [Register("MenuView")]
-	[MvxPanelPresentation(MvxPanelEnum.Left, MvxPanelHintType.ActivePanel, false)]
-    public class MenuView : BaseViewController<MenuViewModel>
+    [MvxPanelPresentation(MvxPanelEnum.Left, MvxPanelHintType.ActivePanel, false)]
+    public partial class MenuView : BaseViewController<MenuViewModel>
     {
-        public MenuView()
-        {}
+        private List<string> menuIds = new List<string>()
+        {
+            "home",
+            "program",
+            "conference",
+            "map",
+            "info"
+        };
 
+        private ButtonMenu lastSelectedButton;
+
+        public MenuView()
+        {
+        }
+
+        public MenuView(IntPtr arg) : base(arg)
+        {
+        }
         public override void ViewDidLoad()
         {
-            base.ViewDidLoad();
+            //base.ViewDidLoad();
 
             var scrollView = new UIScrollView(View.Frame)
             {
                 ShowsHorizontalScrollIndicator = false,
-                AutoresizingMask = UIViewAutoresizing.FlexibleHeight
+                AutoresizingMask = UIViewAutoresizing.FlexibleHeight,
+                BackgroundColor = Style.Menu.BackgroundColor
             };
 
-            // create a binding set for the appropriate view model
-            var set = this.CreateBindingSet<MenuView, MenuViewModel>();
+            int top = 120, left = 30;
+            UIImage divider = UIImage.FromBundle("divider");
 
-            var homeButton = new UIButton(new CGRect(0, 100, 320, 40));
-            homeButton.SetTitle("Home", UIControlState.Normal);
-            homeButton.BackgroundColor = UIColor.White;
-            homeButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            //set.Bind(homeButton).To(vm => vm.ShowHomeCommand);
+            for (var i = 0; i < MenuViewModel.MenuItems.Count; i++)
+            {
+                MenuItem item = MenuViewModel.MenuItems[i];
 
-            var settingsButton = new UIButton(new CGRect(0, 100, 320, 40));
-            settingsButton.SetTitle("Settings", UIControlState.Normal);
-            settingsButton.BackgroundColor = UIColor.White;
-            settingsButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            //set.Bind(settingsButton).To(vm => vm.ShowSettingCommand);
+                if (MvxEnumerableExtensions.ElementAt(menuIds, i) != null)
+                {
+                    var img = UIImage.FromBundle(menuIds[i])?.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                    var btnHeight = img?.Size.Height + 10 ?? 20;
 
-            var helpButton = new UIButton(new CGRect(0, 100, 320, 40));
-            helpButton.SetTitle("Help & Feedback", UIControlState.Normal);
-            helpButton.BackgroundColor = UIColor.White;
-            helpButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            //set.Bind(helpButton).To(vm => vm.ShowHelpCommand);
+                    var btn = new ButtonMenu(new CGRect(0, top, scrollView.Frame.Width, btnHeight), item, img)
+                    {
+                        ContentEdgeInsets = new UIEdgeInsets(0, left, 0, 0),
+                        ContentMode = UIViewContentMode.ScaleAspectFit
+                    };
+                    
+                    btn.TouchUpInside += OnMenuItemClick;
 
-            set.Apply();
+                    if (i == 0)
+                    {
+                        btn.Selected = true;
+                    }
+
+                    scrollView.Add(btn);
+
+                    top += (int)btn.Frame.Height;
+
+                    var leftSeparator = left + btn.TitleEdgeInsets.Left;
+                    leftSeparator += btn.CurrentImage?.Size.Width ?? 0;
+                    
+                    var separator = new UIImageView(new CGRect(leftSeparator, top, scrollView.Frame.Width - 160, 5))
+                    {
+                        Image = divider
+                    };
+
+                    scrollView.Add(separator);
+
+                    top += (int)separator.Frame.Height + 10;
+                }
+                
+            }
 
             Add(scrollView);
+            
 
             View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
@@ -58,14 +103,11 @@ namespace pmi.iOS.Views
                 scrollView.WithSameWidth(View),
                 scrollView.WithSameHeight(View));
 
-            scrollView.Add(homeButton);
-            scrollView.Add(settingsButton);
-            scrollView.Add(helpButton);
+            //scrollView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
-            scrollView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
-
-            var constraints = scrollView.VerticalStackPanelConstraints(new Margins(20, 10, 20, 10, 5, 5), scrollView.Subviews);
-            scrollView.AddConstraints(constraints);
+            // var constraints = scrollView.VerticalStackPanelConstraints(new Margins(20, 120, 0, 10, 5, 5), scrollView.Subviews);
+            //
+            // scrollView.AddConstraints(constraints);
         }
 
         public override void ViewWillAppear(bool animated)
@@ -74,6 +116,22 @@ namespace pmi.iOS.Views
             base.ViewWillAppear(animated);
 
             NavigationController.NavigationBarHidden = true;
+        }
+
+        public void OnMenuItemClick(object sender, EventArgs e)
+        {
+            ButtonMenu btn = (ButtonMenu) sender;
+
+            btn.Selected = true;
+
+            if (lastSelectedButton != null)
+            {
+                lastSelectedButton.Selected = false;
+            }
+
+            lastSelectedButton = btn;
+
+            MenuClickEvent.Notify(btn.MenuItem.menu_title, btn.MenuItem.url);
         }
     }
 }

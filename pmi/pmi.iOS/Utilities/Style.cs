@@ -48,6 +48,13 @@ namespace pmi.iOS.Utilities
             public static readonly UIColor TextColor = UIColor.White;
         }
 
+        public static class Menu
+        {
+            public static readonly UIColor BackgroundColor = UIColor.Clear.FromHexString("#063251");
+            public static readonly UIColor MenuItemColor = UIColor.White;
+            public static readonly UIColor MenuItemSelectedColor = UIColor.Clear.FromHexString("#FEBB24");
+        }
+
         public static class OptionView
         {
             public static readonly UIColor TableBackgroundColor = UIColor.Clear.FromHexString("#CDCFCF");

@@ -22,15 +22,9 @@ namespace pmi.Core.Services
 
         private static void GetResponse(string response)
         {
-            try
-            {
-                Response = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response);
-            }
-            catch
-            {
-                Response = Activator.CreateInstance(typeof(T)) as T;
-            }
-            
+            Response = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(response) ??
+                       Activator.CreateInstance(typeof(T)) as T;
+
             _callback?.Invoke(Response);
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 
@@ -12,7 +13,6 @@ using Android.Webkit;
 using Java.Lang;
 using pmi.Core.Views.Menu;
 using pmi.Droid.Activities;
-using static Android.Webkit.WebSettings;
 using String = System.String;
 
 namespace pmi.Droid.Fragments
@@ -30,15 +30,30 @@ namespace pmi.Droid.Fragments
             var view = base.OnCreateView(inflater, container, savedInstanceState);
             
             _webview = view.FindViewById<WebView>(Resource.Id.webView);
-            _webview.SetWebViewClient(new WebViewClient());
-            _webview.Settings.JavaScriptEnabled = true;
-            //_webview.SetFitsSystemWindows(true);
-            _webview.SetWebViewClient(new Utilities.WebViewClient(view.FindViewById<ProgressBar>(Resource.Id.prgbar_webview), OnPageLoadingDone));
-            _webview.Settings.DefaultZoom = ZoomDensity.Far;
             _webview.Alpha = 0;
-            _webview.Settings.AllowUniversalAccessFromFileURLs = true;
+            _webview.SetInitialScale(50);
+            _webview.LayoutParameters = new RelativeLayout.LayoutParams(Resources.DisplayMetrics.WidthPixels, ViewGroup.LayoutParams.MatchParent);
 
+            _webview.SetWebViewClient(new Utilities.WebViewClient(view.FindViewById<ProgressBar>(Resource.Id.prgbar_webview), OnPageLoadingDone));
             _webview.SetDownloadListener(new Utilities.WebViewDownloader(Context));
+            
+            ////////////////////////////////////////////////////////////////////
+            //_webview.Settings.DefaultZoom = ZoomDensity.Far;
+            
+            _webview.Settings.LoadWithOverviewMode = true;
+            _webview.Settings.UseWideViewPort = true;
+            _webview.Settings.JavaScriptEnabled = true;
+            _webview.ScrollbarFadingEnabled = false;
+            _webview.Settings.AllowUniversalAccessFromFileURLs = true;
+            _webview.Settings.BuiltInZoomControls = true;
+            _webview.Settings.DisplayZoomControls = false;
+            _webview.ScrollBarStyle = ScrollbarStyles.OutsideOverlay;
+            
+            ////////////////////////////////////////////////////////////////////
+             
+            
+
+            
             
             if (MenuViewModel.MenuItems?.Count > 0)
             {
@@ -76,6 +91,7 @@ namespace pmi.Droid.Fragments
             {
                 ((MainActivity)Activity).DisplayIconNavigateOnMenu();
             }
-        }                
+        }
+        
     }
 }
