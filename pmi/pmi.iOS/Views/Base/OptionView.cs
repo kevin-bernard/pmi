@@ -37,6 +37,10 @@ namespace pmi.iOS.Views
         {
             base.ViewDidLoad();
 
+            NavigationController.SetNavigationBarHidden(true, true);
+
+            //MainTitle.Frame = new CGRect(0,0, UIScreen.MainScreen.Bounds.Width, NavigationController.NavigationBar.Frame.Size.Height);
+
             MainTitle.Text = Translator.GetText("choose_lang");
             
             MainTitle.TextContainer.LineFragmentPadding = 0;
@@ -46,8 +50,9 @@ namespace pmi.iOS.Views
             
             Layout.InjectMainBackground(this.View.Bounds);
             Layout.AdaptSizeToScreen();
-            
+
             // Initialize table
+            //TableView.Frame = new CGRect(0, MainTitle.Frame.Y + MainTitle.Frame.Size.Height, UIScreen.MainScreen.Bounds.Width, 0);
             TableView.Source = new LangTableSource(ViewModel.Langs, this);
             TableView.SeparatorStyle = UITableViewCellSeparatorStyle.SingleLine;
             TableView.SeparatorColor = Style.OptionView.LineSeparatorColor;
@@ -56,8 +61,6 @@ namespace pmi.iOS.Views
             TableView.TintColor = Style.OptionView.ContentColor;
 
             _spinner = new Spinner(Layout);
-
-            NavigationController.SetNavigationBarHidden(true, true);
         }
         
         public override bool PrefersStatusBarHidden()

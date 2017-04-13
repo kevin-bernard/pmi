@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -25,11 +23,16 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>CFBundleIconFiles</key>
-	<array/>
+	<array>
+		<string>Icon@2x.png</string>
+		<string>Icon.png</string>
+		<string>Icon-60@2x.png</string>
+		<string>Icon-Small@2x.png</string>
+		<string>Icon-Small.png</string>
+		<string>Icon-Small-40@2x.png</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>PMI</string>
-	<key>MinimumOSVersion</key>
-	<string>6.0</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -37,5 +40,9 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>MinimumOSVersion</key>
+	<string>6.0</string>
+	<key>CFBundleIdentifier</key>
+	<string>BIKAY.PMI</string>
 </dict>
 </plist>

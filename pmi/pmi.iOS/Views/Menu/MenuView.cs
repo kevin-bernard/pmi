@@ -71,6 +71,7 @@ namespace pmi.iOS.Views
                     if (i == 0)
                     {
                         btn.Selected = true;
+                        lastSelectedButton = btn;
                     }
 
                     scrollView.Add(btn);
