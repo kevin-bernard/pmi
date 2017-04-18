@@ -70,8 +70,8 @@ namespace pmi.iOS.Views
 
         public void UpdateLang(Lang lang)
         {
+            TableView.UserInteractionEnabled = false;
             ViewModel.SelectedLang = lang.Value;
-
             _spinner.Display();
 
             ApiService.LoadMenuItems(OnMenuItemsLoaded);

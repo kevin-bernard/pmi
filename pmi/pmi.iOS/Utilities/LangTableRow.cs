@@ -17,11 +17,16 @@ namespace pmi.iOS.Utilities
         UITextView textLabel;
 
         public const double PADDING_LEFT = 60;
-        
+
+        public delegate void OnItemClick(NSIndexPath indexPath);
+
         private static int count = 1;
 
-        public LangTableRow(NSString cellId) : base (UITableViewCellStyle.Value2, cellId)
+        private OnItemClick onClickCallback;
+
+        public LangTableRow(NSString cellId, OnItemClick itemClick) : base (UITableViewCellStyle.Value2, cellId)
         {
+            onClickCallback = itemClick;
 
             textLabel = new UITextView()
             {
@@ -30,9 +35,9 @@ namespace pmi.iOS.Utilities
                 BackgroundColor = UIColor.Clear,
                 Editable = false,
                 Selectable = false,
+                UserInteractionEnabled = true,
                 TextContainerInset = UIEdgeInsets.Zero
             };
-
 
             imageView = new UIImageView();
 
@@ -50,7 +55,6 @@ namespace pmi.iOS.Utilities
             {
                 //ContentView.BackgroundColor = UIColor.Black;
             }
-
         }
 
         public override void LayoutSubviews()
@@ -64,10 +68,17 @@ namespace pmi.iOS.Utilities
             textLabel.SizeToFit();
         }
 
-        public void UpdateCell(string title, UIImage image)
+        public void UpdateCell(string title, UIImage image, NSIndexPath indexPath)
         {
             imageView.Image = image;
             textLabel.Text = title;
+
+            UITapGestureRecognizer tgrLabel = new UITapGestureRecognizer(() => {
+                Selected = true;
+                onClickCallback(indexPath);
+            });
+
+            textLabel.AddGestureRecognizer(tgrLabel);
         }
     }
 }
