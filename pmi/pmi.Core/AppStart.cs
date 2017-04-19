@@ -24,7 +24,7 @@ namespace pmi.Core
         /// </summary>
         public void Start(object hint = null)
         {
-            LangManager.AppLang = null;
+            //LangManager.AppLang = null;
 
             if (LangManager.HasAppLang)
             {

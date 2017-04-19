@@ -30,16 +30,15 @@ namespace pmi.iOS.Utilities
 
         public override void LoadStarted(UIWebView webView)
         {
-            AnimateTransition(webView, true);
-            _spinner.Display();
+            LoadStartAnimate(webView);
         }
 
         public override void LoadingFinished(UIWebView webView)
         {
             
             _listener.OnWebViewFinishLoading(webView);
-            AnimateTransition(webView, false);
-            _spinner.Hide();
+
+            LoadFinishAnimate(webView);
         }
 
         public override bool ShouldStartLoad(UIWebView webView, NSUrlRequest request, UIWebViewNavigationType navigationType)
@@ -49,7 +48,9 @@ namespace pmi.iOS.Utilities
             {
                 try
                 {
-                    DownloadFile(request, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                    LoadStartAnimate(webView);
+
+                    DownloadFile(webView, request, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
                 }
                 catch(Exception e)
                 {
@@ -63,7 +64,7 @@ namespace pmi.iOS.Utilities
             return true;
         }
         
-        private void DownloadFile(NSUrlRequest request, string documentsPath)
+        private void DownloadFile(UIWebView webview, NSUrlRequest request, string documentsPath)
         {
             var webClient = new WebClient();
 
@@ -80,6 +81,8 @@ namespace pmi.iOS.Utilities
                 {
                     Toaster.Make(_parent, e.Error.Message);
                 }
+
+                LoadFinishAnimate(webview);
             };
             
             webClient.DownloadFileAsync(new Uri(request.Url.ToString()), localPath);
@@ -100,6 +103,18 @@ namespace pmi.iOS.Utilities
             {
                 view.Alpha = end;
             });
+        }
+
+        private void LoadStartAnimate(UIWebView webView)
+        {
+            AnimateTransition(webView, true);
+            _spinner.Display();
+        }
+
+        private void LoadFinishAnimate(UIWebView webView)
+        {
+            AnimateTransition(webView, false);
+            _spinner.Hide();
         }
     }
 }

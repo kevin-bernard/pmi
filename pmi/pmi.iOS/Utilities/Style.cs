@@ -14,15 +14,18 @@ namespace pmi.iOS.Utilities
     {
         public static void InjectMainBackground(this UIView layout, CGRect bounds)
         {
-            CGColor[] colors = new[] { new UIColor(red: 0.05f, green:0.44f, blue:0.73f, alpha:1.0f).CGColor,
-                new UIColor(red: 45/255, green: 128 / 255, blue: 153 / 255, alpha: 0.01f ).CGColor};
-            CAGradientLayer gradientLayer = new CAGradientLayer();
-            gradientLayer.NeedsDisplayOnBoundsChange = true;
-            gradientLayer.MasksToBounds = true;
-            gradientLayer.Frame = bounds;
-            gradientLayer.Colors = colors;
+            //CGColor[] colors = new[] { UIColor.Clear.FromHexString("#FFFFFF").CGColor, UIColor.Clear.FromHexString("#90D8F5").CGColor};
+            //CAGradientLayer gradientLayer = new CAGradientLayer();
+            //gradientLayer.NeedsDisplayOnBoundsChange = true;
+            //gradientLayer.MasksToBounds = true;
+            //gradientLayer.Frame = bounds;
+            //gradientLayer.Colors = colors;
+           
+            //layout.Layer.InsertSublayer(gradientLayer, 0);
+            var imgView = new UIImageView(UIImage.FromBundle("background"));
+            imgView.Frame = new CGRect(0, 0, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
 
-            layout.Layer.InsertSublayer(gradientLayer, 0);
+            layout.InsertSubview(imgView, 0);
         }
 
         public static void ApplyTitleStyle(this UITextView title)

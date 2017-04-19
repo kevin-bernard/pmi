@@ -73,11 +73,39 @@
         </view>
     </objects>
     <resources>
-        <image name="Images/it.png" width="48" height="28"/>
         <image name="Images/it_ch.png" width="48" height="29"/>
         <image name="en" width="48" height="28"/>
         <image name="en_gb" width="86" height="52"/>
         <image name="en_ir" width="48" height="28"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon.png" width="57" height="57"/>
+        <image name="back" width="48" height="48"/>
+        <image name="background" width="374" height="606"/>
+        <image name="conference" width="17" height="17"/>
+        <image name="de" width="48" height="28"/>
+        <image name="de_at" width="48" height="28"/>
+        <image name="de_ch" width="48" height="28"/>
+        <image name="de_lu" width="48" height="28"/>
+        <image name="de_nl" width="48" height="28"/>
+        <image name="divider" width="556" height="26"/>
+        <image name="forward" width="15" height="28"/>
+        <image name="fr" width="48" height="28"/>
+        <image name="fr_be" width="48" height="28"/>
+        <image name="fr_ch" width="48" height="28"/>
+        <image name="fr_lt" width="48" height="28"/>
+        <image name="fr_lu" width="48" height="28"/>
+        <image name="fr_md" width="48" height="28"/>
+        <image name="home" width="17" height="17"/>
+        <image name="info" width="17" height="17"/>
+        <image name="it" width="48" height="28"/>
+        <image name="it_ch" width="48" height="28"/>
+        <image name="map" width="17" height="17"/>
+        <image name="program" width="17" height="17"/>
+        <image name="spinning_circle" width="40" height="40"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="retina47"/>

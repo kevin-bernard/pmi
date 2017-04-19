@@ -37,6 +37,9 @@ namespace pmi.iOS.Views
         {
             base.ViewDidLoad();
 
+            Layout.InjectMainBackground(this.View.Bounds);
+            Layout.AdaptSizeToScreen();
+
             NavigationController.SetNavigationBarHidden(true, true);
 
             //MainTitle.Frame = new CGRect(0,0, UIScreen.MainScreen.Bounds.Width, NavigationController.NavigationBar.Frame.Size.Height);
@@ -48,8 +51,8 @@ namespace pmi.iOS.Views
 
             MainTitle.TextContainerInset = new UIEdgeInsets((MainTitle.Bounds.Height / 2) - (MainTitle.ContentSize.Height / 2), (nfloat)LangTableRow.PADDING_LEFT, 0, 0);
             
-            Layout.InjectMainBackground(this.View.Bounds);
-            Layout.AdaptSizeToScreen();
+            
+            
 
             // Initialize table
             //TableView.Frame = new CGRect(0, MainTitle.Frame.Y + MainTitle.Frame.Size.Height, UIScreen.MainScreen.Bounds.Width, 0);
