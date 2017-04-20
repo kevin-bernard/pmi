@@ -38,13 +38,15 @@
 	</dict>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>MinimumOSVersion</key>
-	<string>7.0</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>CFBundleDisplayName</key>
 	<string>pmi</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.dev.pmi</string>
+	<string>com.noe.pmi</string>
+	<key>MinimumOSVersion</key>
+	<string>9.1</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

@@ -57,6 +57,7 @@ namespace pmi.iOS.Utilities
                     Toaster.Make(_parent, e.Message);
                 }
 
+                UIApplication.SharedApplication.OpenUrl(request.Url);
 
                 return false;
             }
