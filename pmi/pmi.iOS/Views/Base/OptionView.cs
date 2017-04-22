@@ -29,6 +29,10 @@ namespace pmi.iOS.Views
 
         [Outlet]
         [GeneratedCode("iOS Designer", "1.0")]
+        UILabel LblTitle { get; set; }
+
+        [Outlet]
+        [GeneratedCode("iOS Designer", "1.0")]
         public UIView Layout { get; set; }
 
         private Spinner _spinner;
@@ -42,17 +46,21 @@ namespace pmi.iOS.Views
 
             NavigationController.SetNavigationBarHidden(true, true);
 
-            //MainTitle.Frame = new CGRect(0,0, UIScreen.MainScreen.Bounds.Width, NavigationController.NavigationBar.Frame.Size.Height);
+            MainTitle.Frame = new CGRect(0,0, UIScreen.MainScreen.Bounds.Width, TableView.Frame.Top);
 
-            MainTitle.Text = Translator.GetText("choose_lang");
             
             MainTitle.TextContainer.LineFragmentPadding = 0;
+            MainTitle.Text = string.Empty;
             MainTitle.ApplyTitleStyle();
 
-            MainTitle.TextContainerInset = new UIEdgeInsets((MainTitle.Bounds.Height / 2) - (MainTitle.ContentSize.Height / 2), (nfloat)LangTableRow.PADDING_LEFT, 0, 0);
-            
-            
-            
+            //MainTitle.TextContainerInset = new UIEdgeInsets((MainTitle.Bounds.Height / 2) - 8, (nfloat)LangTableRow.PADDING_LEFT, 0, 0);
+
+            LblTitle.Text = Translator.GetText("choose_lang");
+            LblTitle.Font = UIFont.FromName("Arial", 16f);
+            LblTitle.TextColor = Style.Header.TextColor;
+
+            LblTitle.Frame = new CGRect((nfloat)LangTableRow.PADDING_LEFT, (MainTitle.Bounds.Height / 2) - (LblTitle.Bounds.Height / 2), UIScreen.MainScreen.Bounds.Width, TableView.Frame.Top);
+            LblTitle.SizeToFit();
 
             // Initialize table
             //TableView.Frame = new CGRect(0, MainTitle.Frame.Y + MainTitle.Frame.Size.Height, UIScreen.MainScreen.Bounds.Width, 0);

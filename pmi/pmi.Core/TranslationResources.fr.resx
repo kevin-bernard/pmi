@@ -120,6 +120,9 @@
   <data name="choose_lang" xml:space="preserve">
     <value>Veuillez sélectionner votre pays :</value>
   </data>
+  <data name="error_no_internet" xml:space="preserve">
+    <value>S'il vous plaît connectez-vous à internet et redémarrez l'application.</value>
+  </data>
   <data name="fr" xml:space="preserve">
     <value>Français - France</value>
   </data>

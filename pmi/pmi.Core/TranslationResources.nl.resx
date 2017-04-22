@@ -117,18 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="choose_lang" xml:space="preserve">
-    <value>Selezionare il paese :</value>
-  </data>
   <data name="error_no_internet" xml:space="preserve">
-    <value>"CONNETTETEVI PER FAVORE AD INTERNET E FATE RIPARTIRE L'APPLICAZIONE
-
-"</value>
-  </data>
-  <data name="it" xml:space="preserve">
-    <value>Italiano - Italia</value>
-  </data>
-  <data name="it_ch" xml:space="preserve">
-    <value>Italiano - Svizzera</value>
+    <value>Maak a.u.b. verbinding met internet en herstart de applicatie.</value>
   </data>
 </root>

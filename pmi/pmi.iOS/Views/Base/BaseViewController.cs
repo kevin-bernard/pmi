@@ -44,6 +44,8 @@ namespace pmi.iOS.Views
             EdgesForExtendedLayout = UIRectEdge.None;
             View.BackgroundColor = UIColor.White;
             UIApplication.SharedApplication.SetStatusBarHidden(true, true);
+            NavigationController.NavigationBar.TintColor = UIColor.Clear;
+            UIApplication.SharedApplication.StatusBarHidden = true;
             //NavigationController.SetNavigationBarHidden(true, true);
             //NavigationController.SetToolbarHidden(true, true);
 

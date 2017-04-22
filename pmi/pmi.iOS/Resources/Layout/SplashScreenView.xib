@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashScreenController">
+            <connections>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+                <outlet property="Layout" destination="46" id="name-outlet-46"/>
+                <outlet property="MainTitle" destination="47" id="name-outlet-47"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+        </view>
+        <view contentMode="scaleToFill" id="46" translatesAutoresizingMaskIntoConstraints="NO">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" id="47" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="..." selectable="NO" editable="NO" layoutMarginsFollowReadableWidth="YES">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="51"/>
+                    <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" id="49" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                    <rect key="frame" x="0.0" y="-252" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="50" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                    <rect key="frame" x="0.0" y="-205" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="51" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                    <rect key="frame" x="0.0" y="-167" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+        </view>
+    </objects>
+    <resources>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon.png" width="57" height="57"/>
+        <image name="back" width="48" height="48"/>
+        <image name="background" width="374" height="606"/>
+        <image name="conference" width="17" height="17"/>
+        <image name="de" width="48" height="28"/>
+        <image name="de_at" width="48" height="28"/>
+        <image name="de_ch" width="48" height="28"/>
+        <image name="de_lu" width="48" height="28"/>
+        <image name="de_nl" width="48" height="28"/>
+        <image name="divider" width="556" height="26"/>
+        <image name="en" width="48" height="28"/>
+        <image name="en_ir" width="48" height="28"/>
+        <image name="forward" width="15" height="28"/>
+        <image name="fr" width="48" height="28"/>
+        <image name="fr_be" width="48" height="28"/>
+        <image name="fr_ch" width="48" height="28"/>
+        <image name="fr_lt" width="48" height="28"/>
+        <image name="fr_lu" width="48" height="28"/>
+        <image name="fr_md" width="48" height="28"/>
+        <image name="home" width="17" height="17"/>
+        <image name="info" width="17" height="17"/>
+        <image name="it" width="48" height="28"/>
+        <image name="it_ch" width="48" height="28"/>
+        <image name="map" width="17" height="17"/>
+        <image name="program" width="17" height="17"/>
+        <image name="spinning_circle" width="40" height="40"/>
+    </resources>
+</document>

@@ -31,7 +31,7 @@ namespace pmi.iOS.Utilities
             CABasicAnimation rotationAnimation = CABasicAnimation.FromKeyPath("transform.rotation");
             rotationAnimation.To = NSNumber.FromDouble(Math.PI * 2); // full rotation (in radians)
             rotationAnimation.RepeatCount = int.MaxValue; // repeat forever
-            rotationAnimation.Duration = 1;
+            rotationAnimation.Duration = 0.5;
 
             // Give the added animation a key for referencing it later (to remove, in this case).
             _imgView.Layer.AddAnimation(rotationAnimation, "rotationAnimation");

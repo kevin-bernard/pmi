@@ -54,8 +54,10 @@
     <MtouchSdkVersion>10.3</MtouchSdkVersion>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <BuildIpa>True</BuildIpa>
-    <IpaIncludeArtwork>True</IpaIncludeArtwork>
+    <BuildIpa>False</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision>240fe725-7a18-48b5-a199-da7ec1e73555</CodesignProvision>
     <!--<CodesignKey>iPhone Developer</CodesignKey>-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -71,7 +73,7 @@
     <BuildIpa>True</BuildIpa>
     <IpaIncludeArtwork>True</IpaIncludeArtwork>
     <MtouchDebug>False</MtouchDebug>
-    <CodesignProvision>9deee619-ae47-44f2-b6df-24fb8f2831a3</CodesignProvision>
+    <CodesignProvision>822d2aaf-e524-4b5d-8405-f54d24252dd7</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -145,6 +147,7 @@
       <HintPath>..\..\packages\MvvmCross.iOS.Support.JASidePanels.4.4.0\lib\Xamarin.iOS10\JASidePanels.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="MvvmCross.Binding, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmCross.Binding.4.4.0\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
       <Private>True</Private>
@@ -469,9 +472,6 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Info.plist">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -484,6 +484,8 @@
     <ITunesArtwork Include="iTunesArtwork%402x" />
     <None Include="packages.config" />
     <InterfaceDefinition Include="Resources\Layout\OptionView.xib" />
+    <InterfaceDefinition Include="Resources\Layout\SplashScreenView.xib" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
@@ -493,7 +495,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UIColorExtension.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="SplashScreenController.cs" />
     <Compile Include="Utilities\Components\ButtonMenu.cs" />
     <Compile Include="Utilities\Contracts\IMenuListener.cs" />
     <Compile Include="Utilities\Contracts\IWebViewListener.cs" />
@@ -507,8 +508,11 @@
     <Compile Include="Utilities\Toaster.cs" />
     <Compile Include="Utilities\WebViewDelegate.cs" />
     <Compile Include="Views\Base\BaseViewController.cs" />
-    <Compile Include="Views\Base\OptionView.cs" />
     <Compile Include="Views\Base\MainView.cs" />
+    <Compile Include="Views\Base\MainView.designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\OptionView.cs" />
     <Compile Include="Views\Content\ContentView.cs" />
     <Compile Include="Views\Content\ContentView.designer.cs">
       <DependentUpon>ContentView.cs</DependentUpon>
@@ -516,6 +520,10 @@
     <Compile Include="Views\Menu\MenuView.cs" />
     <Compile Include="Views\Menu\MenuView.designer.cs">
       <DependentUpon>MenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashScreenView.cs" />
+    <Compile Include="Views\SplashScreenView.designer.cs">
+      <DependentUpon>SplashScreenView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -533,22 +541,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\Icon-Small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Icon-Small%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Icon%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />

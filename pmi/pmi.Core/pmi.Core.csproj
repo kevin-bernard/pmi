@@ -44,6 +44,31 @@
     <Compile Include="Services\AppInfo.cs" />
     <Compile Include="Services\JsonRequester.cs" />
     <Compile Include="Services\WebRequester.cs" />
+    <Compile Include="TranslationResources.hr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TranslationResources.hr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationResources.hu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TranslationResources.hu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationResources.nl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TranslationResources.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationResources.pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TranslationResources.pl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationResources.pt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TranslationResources.pt.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Lang.cs" />
     <Compile Include="Services\LangManager.cs" />
     <Compile Include="Utilities\MenuItem.cs" />
@@ -166,9 +191,29 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TranslationResources.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="TranslationResources.hr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TranslationResources.hr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationResources.hu.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TranslationResources.hu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="TranslationResources.it.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TranslationResources.it.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationResources.nl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TranslationResources.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationResources.pl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TranslationResources.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationResources.pt.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TranslationResources.pt.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

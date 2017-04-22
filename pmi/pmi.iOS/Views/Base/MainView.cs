@@ -1,22 +1,32 @@
-﻿using CoreGraphics;
+﻿using System;
+using System.CodeDom.Compiler;
+using System.Diagnostics;
 using Foundation;
-using pmi.Core.Views;
 using MvvmCross.iOS.Support.SidePanels;
 using pmi.Core;
+using pmi.Core.Services;
+using pmi.Core.Views;
+using pmi.iOS.Utilities;
 using UIKit;
+using Xamarin.Forms;
+using Style = pmi.iOS.Utilities.Style;
 
-namespace pmi.iOS.Views
+namespace pmi.iOS.Views.Base
 {
-    [Register("MainView")]
-	[MvxPanelPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, true)]
-    public class MainView : BaseViewController<MainViewModel>
+    [MvxPanelPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, true)]
+    public partial class MainView : BaseViewController<MainViewModel>
     {
+        [Outlet]
+        [GeneratedCode("iOS Designer", "1.0")]
+        UITextView MainTitle { get; set; }
+        
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            
             if (AppManager.CurrentApplication.Error == null)
             {
+
                 ViewModel.ShowMenu();
             }
             else
@@ -29,14 +39,14 @@ namespace pmi.iOS.Views
 
                 alert.Message = AppManager.CurrentApplication.Error.Message;
 
-                alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
                 alert.Clicked += (object s, UIButtonEventArgs ev) => {
+                    Process.GetCurrentProcess().Kill();
                     NSThread.Exit();
                 };
 
                 alert.Show();
             }
-            
+
         }
-    }   
+    }
 }

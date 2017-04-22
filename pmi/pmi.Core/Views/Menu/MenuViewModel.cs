@@ -23,7 +23,7 @@ namespace pmi.Core.Views.Menu
 
         public static bool IsUrlContainedInMenu(string url)
         {
-            return GetItemFromUrl(url) != null;
+            return GetItemFromUrl(url) != null || url.ToLower().Contains("conference") == false;
         }
 
         public static MenuItem GetItemFromUrl(string url)

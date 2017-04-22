@@ -3,6 +3,7 @@ using UIKit;
 using MvvmCross.iOS.Platform;
 using MvvmCross.Platform;
 using MvvmCross.Core.ViewModels;
+using pmi.iOS.Views;
 
 namespace pmi.iOS
 {
@@ -39,7 +40,7 @@ namespace pmi.iOS
 
             if (_window.RootViewController == null)
             {
-                _window.RootViewController = new SplashScreenController();
+                _window.RootViewController = new SplashScreenView();
             }
 
             return true;

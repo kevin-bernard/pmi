@@ -53,7 +53,7 @@ namespace pmi.iOS.Utilities
             cell.BackgroundColor = UIColor.Clear;
             tableHeight += cell.Bounds.Height;
 
-            tableView.Frame = new CGRect(tableView.Frame.X, tableView.Frame.Y, View.Layout.Bounds.Width, tableHeight);
+            tableView.Frame = new CGRect(tableView.Frame.X, tableView.Frame.Y, UIScreen.MainScreen.Bounds.Width + 1, tableHeight);
 
             return cell;
         }

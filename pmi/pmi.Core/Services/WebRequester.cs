@@ -25,7 +25,7 @@ namespace pmi.Core.Services
             }
             catch
             {
-                AppManager.CurrentApplication.Error = new Exception("Please connect to the internet and restart the application.");
+                AppManager.CurrentApplication.Error = new Exception(Translator.GetText("error_no_internet"));
 
                 callback(string.Empty);
             }

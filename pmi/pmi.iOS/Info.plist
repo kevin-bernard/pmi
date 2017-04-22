@@ -48,5 +48,9 @@
 	<string>9.1</string>
 	<key></key>
 	<string></string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen.storyboard</string>
 </dict>
 </plist>

@@ -135,4 +135,7 @@
   <data name="de_nl" xml:space="preserve">
     <value>Deutsch - Niederlande</value>
   </data>
+  <data name="error_no_internet" xml:space="preserve">
+    <value>Stellen Sie sicher, dass Sie mit Internet verbunden sind und starten Sie erneut die App.</value>
+  </data>
 </root>

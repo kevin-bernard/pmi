@@ -129,4 +129,7 @@
   <data name="en_ir" xml:space="preserve">
     <value>English - Ireland</value>
   </data>
+  <data name="error_no_internet" xml:space="preserve">
+    <value>Please connect to the internet and restart the application.</value>
+  </data>
 </root>

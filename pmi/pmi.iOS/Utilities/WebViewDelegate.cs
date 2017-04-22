@@ -46,16 +46,16 @@ namespace pmi.iOS.Utilities
            
             if (request.Url.IsFileUrl || (request.Url.Query != null && request.Url.Query.ToLower().Contains("pdf")))
             {
-                try
-                {
-                    LoadStartAnimate(webView);
-
-                    DownloadFile(webView, request, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-                }
-                catch(Exception e)
-                {
-                    Toaster.Make(_parent, e.Message);
-                }
+                //try
+                //{
+                //    LoadStartAnimate(webView);
+                //
+                //    DownloadFile(webView, request, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                //}
+                //catch(Exception e)
+                //{
+                //    Toaster.Make(_parent, e.Message);
+                //}
 
                 UIApplication.SharedApplication.OpenUrl(request.Url);
 
