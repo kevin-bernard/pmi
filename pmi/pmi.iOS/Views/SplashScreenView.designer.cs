@@ -7,30 +7,22 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using UIKit;
 
-namespace pmi.iOS.Views
+namespace pmi.iOS
 {
-    [Register ("SplashScreenController")]
+    [Register ("SplashScreenView")]
     partial class SplashScreenView
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView Layout { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextView MainTitle { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
             if (Layout != null) {
                 Layout.Dispose ();
                 Layout = null;
-            }
-
-            if (MainTitle != null) {
-                MainTitle.Dispose ();
-                MainTitle = null;
             }
         }
     }

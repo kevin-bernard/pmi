@@ -440,6 +440,15 @@
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Default@2x.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\launch_screen.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\launch_screen.imageset\Default-568h@2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\launch_screen.imageset\Default.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\map.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -482,10 +491,10 @@
     </None>
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <None Include="packages.config" />
     <InterfaceDefinition Include="Resources\Layout\OptionView.xib" />
     <InterfaceDefinition Include="Resources\Layout\SplashScreenView.xib" />
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
@@ -495,6 +504,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UIColorExtension.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Views\SplashScreenView.cs" />
+    <Compile Include="Views\SplashScreenView.designer.cs">
+      <DependentUpon>SplashScreenView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Components\ButtonMenu.cs" />
     <Compile Include="Utilities\Contracts\IMenuListener.cs" />
     <Compile Include="Utilities\Contracts\IWebViewListener.cs" />
@@ -520,10 +533,6 @@
     <Compile Include="Views\Menu\MenuView.cs" />
     <Compile Include="Views\Menu\MenuView.designer.cs">
       <DependentUpon>MenuView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SplashScreenView.cs" />
-    <Compile Include="Views\SplashScreenView.designer.cs">
-      <DependentUpon>SplashScreenView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,8 @@ namespace pmi.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : MvxApplicationDelegate
     {
+        public static UIStoryboard Storyboard = UIStoryboard.FromName("LaunchScreen", null);
+
         // class-level declarations
         private UIWindow _window;
         
@@ -38,11 +40,8 @@ namespace pmi.iOS
             // make the window visible
             _window.MakeKeyAndVisible();
 
-            if (_window.RootViewController == null)
-            {
-                _window.RootViewController = new SplashScreenView();
-            }
-
+            _window.RootViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
+            
             return true;
         }
     }

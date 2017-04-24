@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using CoreAnimation;
@@ -14,14 +15,6 @@ namespace pmi.iOS.Utilities
     {
         public static void InjectMainBackground(this UIView layout, CGRect bounds)
         {
-            //CGColor[] colors = new[] { UIColor.Clear.FromHexString("#FFFFFF").CGColor, UIColor.Clear.FromHexString("#90D8F5").CGColor};
-            //CAGradientLayer gradientLayer = new CAGradientLayer();
-            //gradientLayer.NeedsDisplayOnBoundsChange = true;
-            //gradientLayer.MasksToBounds = true;
-            //gradientLayer.Frame = bounds;
-            //gradientLayer.Colors = colors;
-           
-            //layout.Layer.InsertSublayer(gradientLayer, 0);
             var imgView = new UIImageView(UIImage.FromBundle("background"));
             imgView.Frame = new CGRect(0, 0, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
 
