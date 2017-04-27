@@ -40,8 +40,11 @@ namespace pmi.iOS
             // make the window visible
             _window.MakeKeyAndVisible();
 
-            _window.RootViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
-            
+            if (_window.RootViewController == null)
+            {
+                _window.RootViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
+            }
+
             return true;
         }
     }

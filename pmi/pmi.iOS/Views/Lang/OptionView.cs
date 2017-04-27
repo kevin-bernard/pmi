@@ -13,42 +13,36 @@ using pmi.iOS.Services;
 using pmi.iOS.Utilities;
 using UIKit;
 
-namespace pmi.iOS.Views
+namespace pmi.iOS.Views.Lang
 {
-    [Register("OptionView")]
-	[MvxPanelPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, true)]
-    public class OptionView : BaseViewController<OptionViewModel>
+    [MvxPanelPresentation(MvxPanelEnum.Center, MvxPanelHintType.ResetRoot, true)]
+    public partial class OptionView : BaseViewController<OptionViewModel>
     {
-        [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UITableView TableView { get; set; }
-
-        [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UITextView MainTitle { get; set; }
-
-        [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        UILabel LblTitle { get; set; }
-
-        [Outlet]
-        [GeneratedCode("iOS Designer", "1.0")]
-        public UIView Layout { get; set; }
-
         private Spinner _spinner;
 
+       //public OptionView() : base("OptionView", null)
+       //{
+       //}
+
+        public override void DidReceiveMemoryWarning()
+        {
+            base.DidReceiveMemoryWarning();
+
+            // Release any cached data, images, etc that aren't in use.
+        }
+        
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            Layout.InjectMainBackground(this.View.Bounds);
-            Layout.AdaptSizeToScreen();
+            View.InjectMainBackground(this.View.Bounds);
+            View.AdaptSizeToScreen();
 
             NavigationController.SetNavigationBarHidden(true, true);
 
-            MainTitle.Frame = new CGRect(0,0, UIScreen.MainScreen.Bounds.Width, TableView.Frame.Top);
+            MainTitle.Frame = new CGRect(0, 0, UIScreen.MainScreen.Bounds.Width, TableView.Frame.Top);
 
-            
+
             MainTitle.TextContainer.LineFragmentPadding = 0;
             MainTitle.Text = string.Empty;
             MainTitle.ApplyTitleStyle();
@@ -71,15 +65,10 @@ namespace pmi.iOS.Views
             TableView.SeparatorInset = UIEdgeInsets.Zero;
             TableView.TintColor = Style.OptionView.ContentColor;
 
-            _spinner = new Spinner(Layout);
-        }
-        
-        public override bool PrefersStatusBarHidden()
-        {
-            return true;
+            _spinner = new Spinner(View);
         }
 
-        public void UpdateLang(Lang lang)
+        public void UpdateLang(Core.Utilities.Lang lang)
         {
             TableView.UserInteractionEnabled = false;
             ViewModel.SelectedLang = lang.Value;
@@ -93,5 +82,5 @@ namespace pmi.iOS.Views
             MenuViewModel.MenuItems = result.items;
             ViewModel.ShowHomeCommand.Execute();
         }
-    }   
+    }
 }

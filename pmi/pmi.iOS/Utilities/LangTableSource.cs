@@ -7,7 +7,7 @@ using CoreGraphics;
 using Foundation;
 using pmi.Core.Utilities;
 using pmi.iOS.Services;
-using pmi.iOS.Views;
+using pmi.iOS.Views.Lang;
 using UIKit;
 
 namespace pmi.iOS.Utilities
