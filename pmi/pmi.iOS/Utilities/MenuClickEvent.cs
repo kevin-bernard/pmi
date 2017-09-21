@@ -18,11 +18,11 @@ namespace pmi.iOS.Utilities
             listeners.Add(listener);
         }
 
-        public static void Notify(string title, string url)
+        public static void Notify(string title, string url, int index)
         {
             foreach (IMenuListener listener in listeners)
             {
-                listener.OnMenuItemClick(title, url);
+                listener.OnMenuItemClick(title, url, index);
             }
         }
 

@@ -10,6 +10,6 @@ namespace pmi.iOS.Utilities.Contracts
 {
     public interface IMenuListener
     {
-        void OnMenuItemClick(string title, string url);
+        void OnMenuItemClick(string title, string url, int index);
     }
 }

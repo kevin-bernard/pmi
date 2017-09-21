@@ -141,4 +141,19 @@
   <data name="fr_md" xml:space="preserve">
     <value>Français - Madagascar</value>
   </data>
+  <data name="gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="photo_gallery" xml:space="preserve">
+    <value>Gallerie Photos</value>
+  </data>
+  <data name="send_picture_success" xml:space="preserve">
+    <value>Image envoyée, en attente de validation</value>
+  </data>
+  <data name="take_picture" xml:space="preserve">
+    <value>Prendre une photo</value>
+  </data>
+  <data name="upload_picture" xml:space="preserve">
+    <value>Envoie de la photo en cours...</value>
+  </data>
 </root>

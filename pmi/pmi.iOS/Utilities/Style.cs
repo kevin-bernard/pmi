@@ -21,6 +21,15 @@ namespace pmi.iOS.Utilities
             layout.InsertSubview(imgView, 0);
         }
 
+        public static void InjectBackground(this UIView layout, CGRect bounds, UIImage image)
+        {
+            var imgView = new UIImageView(image);
+
+            imgView.Frame = new CGRect(0, 0, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
+
+            layout.InsertSubview(imgView, 0);
+        }
+
         public static void ApplyTitleStyle(this UITextView title)
         {
             title.BackgroundColor = Style.Header.BackgroundColor;

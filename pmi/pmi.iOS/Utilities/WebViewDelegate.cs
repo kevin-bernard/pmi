@@ -21,11 +21,10 @@ namespace pmi.iOS.Utilities
 
         private Spinner _spinner;
 
-        public WebViewDelegate(UIView parent, IWebViewListener listener)
+        public WebViewDelegate(Spinner spinner, IWebViewListener listener)
         {
-            _parent = parent;
             _listener = listener;
-            _spinner = new Spinner(parent);
+            _spinner = spinner;
         }
 
         public override void LoadStarted(UIWebView webView)
@@ -43,8 +42,7 @@ namespace pmi.iOS.Utilities
 
         public override bool ShouldStartLoad(UIWebView webView, NSUrlRequest request, UIWebViewNavigationType navigationType)
         {
-           
-            if (request.Url.IsFileUrl || (request.Url.Query != null && request.Url.Query.ToLower().Contains("pdf")))
+            if (!request.Url.IsFileUrl && (request.Url.Query != null && request.Url.Query.ToLower().Contains("pdf")))
             {
                 //try
                 //{

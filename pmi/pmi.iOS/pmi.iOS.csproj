@@ -57,7 +57,6 @@
     <BuildIpa>False</BuildIpa>
     <IpaIncludeArtwork>False</IpaIncludeArtwork>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <CodesignProvision>240fe725-7a18-48b5-a199-da7ec1e73555</CodesignProvision>
     <!--<CodesignKey>iPhone Developer</CodesignKey>-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -71,9 +70,8 @@
     <CodesignKey>iPhone Distribution: ASSOCIATION SAINT GABRIEL ET SAINT JUST (Z9U4NAEVF3)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
-    <IpaIncludeArtwork>True</IpaIncludeArtwork>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
     <MtouchDebug>False</MtouchDebug>
-    <CodesignProvision>822d2aaf-e524-4b5d-8405-f54d24252dd7</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -99,7 +97,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchFloat32>False</MtouchFloat32>
     <CodesignKey>iPhone Distribution: ASSOCIATION SAINT GABRIEL ET SAINT JUST (Z9U4NAEVF3)</CodesignKey>
-    <CodesignProvision>9deee619-ae47-44f2-b6df-24fb8f2831a3</CodesignProvision>
+    <CodesignProvision>6638aca7-ba4b-45c4-b36b-a021712d212d</CodesignProvision>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>True</BuildIpa>
     <IpaIncludeArtwork>True</IpaIncludeArtwork>
@@ -230,6 +228,12 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ImageAsset Include="Resources\home_page.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\home_page.xcassets\LaunchImages.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -338,6 +342,12 @@
     <ImageAsset Include="Resources\Images.xcassets\en_gb.imageset\en_gb_1x.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\en_gb.imageset\en_gb_2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\en_gb.imageset\en_gb_3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\en_ir.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -386,6 +396,18 @@
     <ImageAsset Include="Resources\Images.xcassets\fr_md.imageset\fr_md_x1.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\gallery.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\gallery.imageset\ic_photo_library_18pt.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\gallery.imageset\ic_photo_library_18pt_2x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\gallery.imageset\ic_photo_library_18pt_3x.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\home.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -396,6 +418,12 @@
       <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\home.imageset\home_x3.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\home_page.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\home_page.imageset\home-background-2.png">
       <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\info.imageset\Contents.json">
@@ -476,6 +504,12 @@
     <ImageAsset Include="Resources\Images.xcassets\program.imageset\program_x3.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\sanctuary_map.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\sanctuary_map.imageset\map-1.png">
+      <InProject>false</InProject>
+    </ImageAsset>
     <ImageAsset Include="Resources\Images.xcassets\spinning_circle.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -507,6 +541,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UIColorExtension.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Utilities\CameraDelegate.cs" />
     <Compile Include="Views\Lang\OptionView.cs" />
     <Compile Include="Views\Lang\OptionView.designer.cs">
       <DependentUpon>OptionView.cs</DependentUpon>
@@ -568,6 +603,22 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Content\Images\home_page.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Content\home_page.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Content\Images\sanctuary_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\sanctuary_map.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

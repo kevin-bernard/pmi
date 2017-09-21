@@ -13,6 +13,7 @@ using pmi.Core.Utilities;
 using pmi.Core.Views.Menu;
 using pmi.iOS.Utilities;
 using pmi.iOS.Utilities.Components;
+using pmi.Core.Services;
 
 namespace pmi.iOS.Views
 {
@@ -25,7 +26,8 @@ namespace pmi.iOS.Views
             "program",
             "conference",
             "map",
-            "info"
+            "info",
+            "gallery"
         };
 
         private ButtonMenu lastSelectedButton;
@@ -50,6 +52,13 @@ namespace pmi.iOS.Views
 
             int top = 120, left = 30;
             UIImage divider = UIImage.FromBundle("divider");
+
+            MenuViewModel.MenuItems.Add(new MenuItem()
+            {
+                menu_title = Translator.GetText("gallery"),
+                page_title = Translator.GetText("gallery"),
+                url = string.Empty
+            });
 
             for (var i = 0; i < MenuViewModel.MenuItems.Count; i++)
             {
@@ -132,7 +141,16 @@ namespace pmi.iOS.Views
 
             lastSelectedButton = btn;
 
-            MenuClickEvent.Notify(btn.MenuItem.menu_title, btn.MenuItem.url);
+            int index = 0;
+
+            for (var i = 0; i < MenuViewModel.MenuItems.Count; i++)
+            {
+                if (MenuViewModel.MenuItems[i].page_title == btn.MenuItem.page_title) {
+                    index = i;
+                }
+            }
+
+            MenuClickEvent.Notify(btn.MenuItem.menu_title, btn.MenuItem.url, index);
         }
     }
 }

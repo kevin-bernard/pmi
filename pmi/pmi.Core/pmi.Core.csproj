@@ -42,6 +42,7 @@
     </Compile>
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\AppInfo.cs" />
+    <Compile Include="Services\IHttpRequest.cs" />
     <Compile Include="Services\JsonRequester.cs" />
     <Compile Include="Services\WebRequester.cs" />
     <Compile Include="TranslationResources.hr.Designer.cs">
@@ -69,6 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TranslationResources.pt.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\Gallery.cs" />
+    <Compile Include="Utilities\GalleryImage.cs" />
+    <Compile Include="Utilities\ImageResizer.cs" />
     <Compile Include="Utilities\Lang.cs" />
     <Compile Include="Services\LangManager.cs" />
     <Compile Include="Utilities\MenuItem.cs" />

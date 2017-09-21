@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -41,7 +41,7 @@
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>CFBundleDisplayName</key>
-	<string>pmi</string>
+	<string>PMI Lourdes</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.noe.pmi</string>
 	<key>MinimumOSVersion</key>
@@ -50,5 +50,9 @@
 	<string></string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Photo Picker uses Photo</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Use camera to take pictures and upload through a webservice</string>
 </dict>
 </plist>

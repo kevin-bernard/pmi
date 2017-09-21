@@ -17,17 +17,47 @@ namespace pmi.iOS.Utilities
 
         private UIImageView _imgView;
 
+        private UIActivityIndicatorView activitySpinner;
+
         public Spinner(UIView parent)
         {
             _parent = parent;
 
+            activitySpinner = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.WhiteLarge);
+
             var firstImage = UIImage.FromBundle("spinning_circle.png");
 
-            var container = new UIView(new CGRect((parent.Frame.Width / 2) - (firstImage.Size.Width / 2), (parent.Frame.Height / 2) - (firstImage.Size.Height / 2), firstImage.Size.Width, firstImage.Size.Height));
-           
-            _imgView = new UIImageView(firstImage);
-            _imgView.Hidden = true;
+            activitySpinner.Frame = new CGRect((parent.Frame.Width / 2) - (activitySpinner.Frame.Width / 2), (parent.Frame.Height / 2) - (activitySpinner.Frame.Height / 2), activitySpinner.Frame.Width, activitySpinner.Frame.Height);
+            activitySpinner.AutoresizingMask = UIViewAutoresizing.All;
+            activitySpinner.Hidden = true;
+            activitySpinner.Color = UIColor.Black;
+            _parent.AddSubview(activitySpinner);
 
+        }
+
+
+        public void Display()
+        {
+            activitySpinner.StartAnimating();
+            activitySpinner.Hidden = false;
+        }
+
+        public void Hide()
+        {
+            activitySpinner.StopAnimating();
+            activitySpinner.Hidden = true;
+        }
+
+        public Spinner Refresh()
+        {
+            _imgView.Layer.RemoveAllAnimations();
+            AddAnimation();
+
+            return this;
+        }
+
+        private void AddAnimation()
+        {
             CABasicAnimation rotationAnimation = CABasicAnimation.FromKeyPath("transform.rotation");
             rotationAnimation.To = NSNumber.FromDouble(Math.PI * 2); // full rotation (in radians)
             rotationAnimation.RepeatCount = int.MaxValue; // repeat forever
@@ -35,23 +65,6 @@ namespace pmi.iOS.Utilities
 
             // Give the added animation a key for referencing it later (to remove, in this case).
             _imgView.Layer.AddAnimation(rotationAnimation, "rotationAnimation");
-
-            container.AddSubview(_imgView);
-
-            _parent.AddSubview(container);
-        }
-
-
-        public void Display()
-        {
-            _imgView.StartAnimating();
-            _imgView.Hidden = false;
-        }
-
-        public void Hide()
-        {
-            _imgView.StopAnimating();
-            _imgView.Hidden = true;
         }
     }
 }

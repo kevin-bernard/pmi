@@ -120,4 +120,16 @@
   <data name="error_no_internet" xml:space="preserve">
     <value>MOLIM VAS SPOJITE SE NA INTERNET I PONOVNO POKRENITE APLIKACIJU</value>
   </data>
+  <data name="gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="send_picture_success" xml:space="preserve">
+    <value>Picture sent, wait for validation</value>
+  </data>
+  <data name="take_picture" xml:space="preserve">
+    <value>Take a picture</value>
+  </data>
+  <data name="upload_picture" xml:space="preserve">
+    <value>Upload picture...</value>
+  </data>
 </root>
